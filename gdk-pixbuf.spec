@@ -1,6 +1,6 @@
 Summary:	Image loading library used with GNOME
 Name:		gdk-pixbuf
-Version:	0.10.0
+Version:	0.10.1
 Release:	1
 Epoch:		1
 License:	LGPL
