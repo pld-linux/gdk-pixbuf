@@ -10,7 +10,7 @@ Summary(ru):	Библиотека загрузки изображений и рендеринга для Gdk
 Summary(uk):	Б╕бл╕отека завантаження зображень та рендерингу для Gdk
 Name:		gdk-pixbuf
 Version:	0.22.0
-Release:	7
+Release:	8
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
@@ -18,6 +18,7 @@ Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gdk-pixbuf/0.22/%{name}-%{version
 # Source0-md5: 05fcb68ceaa338614ab650c775efc2f2
 Patch0:		%{name}-am.patch
 Patch1:		%{name}-nognome.patch
+Patch2:		%{name}-am18.patch
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -168,6 +169,7 @@ CzЙ╤Ф gdk-pixbuf zwi╠zana z GNOME - wersja statyczna.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__libtoolize}
@@ -178,6 +180,7 @@ CzЙ╤Ф gdk-pixbuf zwi╠zana z GNOME - wersja statyczna.
 	--disable-gtk-doc \
 	--with-html-dir=%{_gtkdocdir} \
 	%{!?with_gnome:--without-gnome}
+
 %{__make} \
 	AS="%{__cc}"
 
