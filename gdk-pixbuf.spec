@@ -16,7 +16,7 @@ BuildRequires:	gtk+-devel
 BuildRequires:	XFree86-devel
 BuildRequires:	gnome-libs-devel
 BuildRequires:	esound-devel
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 %define		_m4datadir	/usr/share/aclocal
