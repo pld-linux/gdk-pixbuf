@@ -1,10 +1,12 @@
 #
 # _without_gnome - without GNOME (build without libgnomecanvaspixbuf)
 Summary:	Image loading library used with GNOME
+Summary(es):	The GdkPixBuf image handling library
 Summary(pl):	Biblioteka ³aduj±ca obrazki u¿ywana w GNOME
+Summary(pt_BR):	Biblioteca GdkPixBuf para manipulação de imagens
 Name:		gdk-pixbuf
 Version:	0.11.0
-Release:	6
+Release:	8
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
@@ -15,16 +17,17 @@ Group(pl):	X11/Biblioteki
 Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/gdk-pixbuf/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-am.patch
 URL:		http://www.gnome.org/
-BuildRequires:	libjpeg-devel
-BuildRequires:	libpng >= 1.0.8
-BuildRequires:	libtiff-devel
-BuildRequires:	libungif-devel
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	gtk+-devel
 %{!?_without_gnome:BuildRequires:	gnome-libs-devel}
+BuildRequires:	libjpeg-devel
+BuildRequires:	libtiff-devel
+BuildRequires:	libpng >= 1.0.8
 BuildRequires:	libtool
-BuildRequires:	automake
-BuildRequires:	autoconf
+BuildRequires:	libungif-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Obsoletes:	gdk-pixbuf-gnome
 
 %define		_prefix		/usr/X11R6
 
@@ -42,22 +45,54 @@ Biblioteka GdkPixBuf posiada du¿e mo¿liwo¶ci:
    czy bufory GdkRGB,
  - interfejs pamiêci podrêcznej.
 
+%description -l es
+The GdkPixBuf library provides a number of features, including :
+
+- GdkPixbuf structure for representing images.
+- Image loading facilities.
+- Rendering of a GdkPixBuf into various formats:
+  drawables (windows, pixmaps), GdkRGB buffers.
+- Fast scaling and compositing of pixbufs.
+- Simple animation loading (ie. animated gifs)
+
+%description -l pt_BR
+A biblioteca GdkPixBuf oferece:
+
+- Estrutura GdkPixBuf para representar imagens.
+- Facilidades para carga de imagens.
+- Maneira simples de carregar imagens animadas.
+- Vários formatos: desenháveis (windows, pixmaps), buffers GdkRGB.
+
 %package devel
 Summary:	Libraries and include files for the gdk-pixbuf
 Group:		X11/Development/Libraries
 Group(de):	X11/Entwicklung/Libraries
+Summary(es):	Libraries and include files for developing GdkPixBuf applications
 Group(fr):	X11/Development/Librairies
 Group(pl):	X11/Programowanie/Biblioteki
+Summary(pt_BR):	Bibliotecas e arquivos cabeçalhos para desenvolvimento
 Requires:	%{name} = %{version}
+Requires:	%{name}-gnome = %{version}
+Requires:	gnome-libs-devel
 
 %description devel
 Libraries and include files for the gdk-pixbuf.
 
+%description -l es devel
+Libraries and include files for developing GdkPixBuf applications.
+
 %description -l pl devel
 Biblioteki i pliki nag³ówkowe dla gdk-pixbuf.
 
+%description -l pt_BR devel
+Bibliotecas e arquivos cabeçalhos para desenvolvimento de aplicativos baseados
+nessa biblioteca.
+
 %package static
 Summary:	Static gdk-pixbuf libraries
+Summary(es):	Extra documentation about gdk-pixbuf
+Summary(pl):	Biblioteki statyczne gdk-pixbuf
+Summary(pt_BR):	Documentação adicional sobre o gdk-pixbuf
 Group:		X11/Development/Libraries
 Group(de):	X11/Entwicklung/Libraries
 Group(fr):	X11/Development/Librairies
@@ -67,8 +102,14 @@ Requires:	%{name}-devel = %{version}
 %description static
 Static gdk-pixbuf libraries.
 
+%description -l es static
+Static libraries for gdk-pixbuf development.
+
 %description -l pl static
 Statyczne biblioteki gdk-pixbuf.
+
+%description -l pt_BR static
+Bibliotecas estáticas para desenvolvimento com gdk-pixbuf.
 
 %prep
 %setup -q
@@ -82,7 +123,8 @@ autoconf
 rm -f missing
 automake -a -c
 %configure \
-	--enable-canvas-pixbuf
+	--enable-canvas-pixbuf \
+	--disable-gtk-doc
 %{__make}
 
 %install
