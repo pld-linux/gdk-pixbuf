@@ -6,7 +6,7 @@ Summary(pl):	Biblioteka ³aduj±ca obrazki u¿ywana w GNOME
 Summary(pt_BR):	Biblioteca GdkPixBuf para manipulação de imagens
 Name:		gdk-pixbuf
 Version:	0.11.0
-Release:	8
+Release:	9
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
@@ -72,7 +72,6 @@ Group(fr):	X11/Development/Librairies
 Group(pl):	X11/Programowanie/Biblioteki
 Summary(pt_BR):	Bibliotecas e arquivos cabeçalhos para desenvolvimento
 Requires:	%{name} = %{version}
-Requires:	%{name}-gnome = %{version}
 Requires:	gnome-libs-devel
 
 %description devel
