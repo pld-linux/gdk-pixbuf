@@ -58,3 +58,134 @@
  
  #
  # Require gtk-doc when making dist
+--- gdk-pixbuf-0.16.0/configure.in.wiget	Tue Apr 16 07:35:03 2002
++++ gdk-pixbuf-0.16.0/configure.in	Tue Apr 16 08:05:48 2002
+@@ -147,27 +147,47 @@
+ 
+ dnl Test for libtiff
+   if test -z "$LIBTIFF"; then
+-    AC_CHECK_LIB(tiff, TIFFReadScanline,
+-      AC_CHECK_HEADER(tiffio.h,
+-        TIFF='tiff'; LIBTIFF='-ltiff',
+-        AC_MSG_WARN(*** TIFF loader will not be built (TIFF header files not found) ***)),
+-      AC_CHECK_LIB(tiff, TIFFWriteScanline,
+-        AC_CHECK_HEADER(tiffio.h,
+-          TIFF='tiff'; LIBTIFF='-ltiff -ljpeg -lz',
+-          AC_MSG_WARN(*** TIFF loader will not be built (TIFF header files not found) ***)),
+-        AC_CHECK_LIB(tiff34, TIFFFlushData,
+-          AC_CHECK_HEADER(tiffio.h,
+-            TIFF='tiff'; LIBTIFF='-ltiff34 -ljpeg -lz',
+-            AC_MSG_WARN(*** TIFF loader will not be built (TIFF header files not found) ***)),
+-        AC_MSG_WARN(*** TIFF plug-in will not be built (TIFF library not found) ***), -ljpeg -lz -lm), -ljpeg -lz -lm), -lm)
++    AC_CHECK_LIB(tiff, TIFFReadScanline,[
++      AC_CHECK_HEADER(tiffio.h,[
++        TIFF='tiff'; LIBTIFF='-ltiff'
++      ],[
++        AC_MSG_WARN([*** TIFF loader will not be built (TIFF header files not found) ***])
++      ])
++    ],[
++      AC_CHECK_LIB(tiff, TIFFWriteScanline,[
++        AC_CHECK_HEADER(tiffio.h,[
++          TIFF='tiff'; LIBTIFF='-ltiff -ljpeg -lz'
++	],[
++          AC_MSG_WARN([*** TIFF loader will not be built (TIFF header files not found) ***])
++	])
++      ],[
++        AC_CHECK_LIB(tiff34, TIFFFlushData,[
++          AC_CHECK_HEADER(tiffio.h,[
++            TIFF='tiff'; LIBTIFF='-ltiff34 -ljpeg -lz'
++	  ],[
++            AC_MSG_WARN([*** TIFF loader will not be built (TIFF header files not found) ***])
++	  ])
++	],[
++            AC_MSG_WARN([*** TIFF plug-in will not be built (TIFF library not found) ***])
++	],[
++          -ljpeg -lz -lm
++	])
++      ],[
++        -ljpeg -lz -lm
++      ])
++    ],[
++      -lm
++    ])
+   fi
+ 
+ dnl Test for libjpeg
+   if test -z "$LIBJPEG"; then
+-    AC_CHECK_LIB(jpeg, jpeg_destroy_decompress,
+-      jpeg_ok=yes,
++    AC_CHECK_LIB(jpeg, jpeg_destroy_decompress,[
++      jpeg_ok=yes
++     ],[
+       jpeg_ok=no
+-      AC_MSG_WARN(*** JPEG loader will not be built (JPEG library not found) ***))
++      AC_MSG_WARN([*** JPEG loader will not be built (JPEG library not found) ***])
++     ])
+     if test "$jpeg_ok" = yes; then
+       AC_MSG_CHECKING([for jpeglib.h])
+       AC_TRY_CPP(
+@@ -175,41 +195,47 @@
+ #undef PACKAGE
+ #undef VERSION
+ #include <jpeglib.h>],
+-        jpeg_ok=yes,
+-        jpeg_ok=no)
+-      AC_MSG_RESULT($jpeg_ok)
++        [jpeg_ok=yes],
++        [jpeg_ok=no])
++      AC_MSG_RESULT([$jpeg_ok])
+       if test "$jpeg_ok" = yes; then
+         LIBJPEG='-ljpeg'
+-        AC_CHECK_LIB(jpeg, jpeg_simple_progression,     
+-          AC_DEFINE(HAVE_PROGRESSIVE_JPEG),
+-          AC_MSG_WARN(JPEG library does not support progressive saving.))
++        AC_CHECK_LIB(jpeg, jpeg_simple_progression,[     
++          AC_DEFINE(HAVE_PROGRESSIVE_JPEG)
++	 ],[
++          AC_MSG_WARN([JPEG library does not support progressive saving.])
++	 ])
+       else
+-          AC_MSG_WARN(*** JPEG loader will not be built (JPEG header file not found) ***)
++          AC_MSG_WARN([*** JPEG loader will not be built (JPEG header file not found) ***])
+       fi
+     fi
+   fi
+ 
+ dnl Test for libpng
+   if test -z "$LIBPNG"; then
+-    AC_CHECK_LIB(png, png_read_info,
+-      AC_CHECK_HEADER(png.h,
+-        png_ok=yes,
+-        png_ok=no),
+-      AC_MSG_WARN(*** PNG loader will not be built (PNG library not found) ***), -lz -lm)
++    AC_CHECK_LIB(png, png_read_info,[
++      AC_CHECK_HEADER(png.h,[
++        png_ok=yes
++       ],[
++        png_ok=no
++       ])
++      ],[
++        AC_MSG_WARN([*** PNG loader will not be built (PNG library not found) ***])
++      ],[ -lz -lm])
+     if test "$png_ok" = yes; then
+       AC_MSG_CHECKING([for png_structp in png.h])
+       AC_TRY_COMPILE([#include <png.h>],
+         [png_structp pp; png_infop info; png_colorp cmap; png_create_read_struct;],
+-        png_ok=yes,
+-        png_ok=no)
+-      AC_MSG_RESULT($png_ok)
++        [png_ok=yes],
++        [png_ok=no])
++      AC_MSG_RESULT([$png_ok])
+       if test "$png_ok" = yes; then
+         PNG='png'; LIBPNG='-lpng -lz'
+       else
+-        AC_MSG_WARN(*** PNG loader will not be built (PNG library is too old) ***)
++        AC_MSG_WARN([*** PNG loader will not be built (PNG library is too old) ***])
+       fi
+     else
+-     AC_MSG_WARN(*** PNG loader will not be built (PNG header file not found) ***)
++     AC_MSG_WARN([*** PNG loader will not be built (PNG header file not found) ***])
+     fi
+   fi
+ 
