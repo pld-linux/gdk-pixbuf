@@ -1,0 +1,23 @@
+--- gdk-pixbuf-0.19.0/configure.in.orig	Tue Sep 17 01:22:16 2002
++++ gdk-pixbuf-0.19.0/configure.in	Tue Sep 17 01:34:51 2002
+@@ -49,6 +49,12 @@
+ AC_SUBST(STRIP_BEGIN)
+ AC_SUBST(STRIP_END)
+ 
++AC_ARG_WITH(gnome, [  --without-gnome         Don not build GnomeCanvasPixbuf library],
++	[BUILD_CANVAS=$withval],
++	[BUILD_CANVAS=check]
++)
++
++if test "$BUILD_CANVAS" != "no" ; then
+ AC_PATH_PROG(GNOME_CONFIG,gnome-config,no)
+ if test x$GNOME_CONFIG != xno; then
+ 	echo "Building the GnomeCanvasPixbuf library"
+@@ -59,6 +65,7 @@
+ 	echo "Not building GnomeCanvasPixbuf library"
+ 	BUILD_CANVAS=no
+ fi       
++fi
+ 
+ AM_CONDITIONAL(BUILD_CANVAS_ITEM, test $BUILD_CANVAS = yes)
+ 

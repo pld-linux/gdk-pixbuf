@@ -1,8 +1,7 @@
-
 #
-# _without_gnome - without GNOME (build without libgnomecanvaspixbuf)
+# Conditional build:
+# _without_gnome - build without libgnomecanvaspixbuf (which requires GNOME)
 #
-
 Summary:	Image loading library used with GNOME
 Summary(pl):	Biblioteka Ёaduj╠ca obrazki u©ywana w GNOME
 Summary(pt_BR):	Biblioteca GdkPixBuf para manipulaГЦo de imagens
@@ -10,12 +9,13 @@ Summary(ru):	Библиотека загрузки изображений и рендеринга для Gdk
 Summary(uk):	Б╕бл╕отека завантаження зображень та рендерингу для Gdk
 Name:		gdk-pixbuf
 Version:	0.19.0
-Release:	1
+Release:	2
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/gdk-pixbuf/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-am.patch
+Patch1:		%{name}-nognome.patch
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -29,6 +29,7 @@ BuildRequires:	libungif-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
+%define		_gtkdocdir	%{_defaultdocdir}/gtk-doc/html
 
 %description
 The GdkPixBuf library provides a number of features:
@@ -68,6 +69,7 @@ Summary(ru):	Средства разработки для программ с GdkPixBuf
 Summary(uk):	Засоби розробки для програм з GdkPixBuf
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
+Requires:	gtk-doc-common
 
 %description devel
 Include files for the gdk-pixbuf.
@@ -162,19 +164,18 @@ CzЙ╤Ф gdk-pixbuf zwi╠zana z GNOME - wersja statyczna.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 rm -f missing
 %{__libtoolize}
 aclocal
 %{__autoconf}
-%{__automake} -a -c
-if [ -f %{_pkgconfigdir}/libpng12.pc ] ; then
-	CPPFLAGS="`pkg-config libpng12 --cflags`"
-fi
+%{__automake}
 %configure \
 	--disable-gtk-doc \
-	CPPFLAGS="$CPPFLAGS"
+	--with-html-dir=%{_gtkdocdir} \
+	%{?_without_gnome:--without-gnome}
 %{__make} AS="%{__cc}"
 
 %install
@@ -182,7 +183,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	m4datadir=%{_aclocaldir}
+	m4datadir=%{_aclocaldir} \
+	HTML_DIR=%{_gtkdocdir}
+
+# resolve conflict with gtk+2-devel
+mv -f $RPM_BUILD_ROOT%{_gtkdocdir}/gdk-pixbuf{,-1.0}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -211,6 +216,9 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_includedir}/gdk-pixbuf-1.0/gdk-pixbuf
 %{_includedir}/gdk-pixbuf-1.0/gdk-pixbuf/gdk*.h
 %{_aclocaldir}/*
+%dir %{_gtkdocdir}/gdk-pixbuf-1.0
+%{_gtkdocdir}/gdk-pixbuf-1.0/[^g]*
+%{_gtkdocdir}/gdk-pixbuf-1.0/g[^n]*
 
 %files static
 %defattr(644,root,root,755)
@@ -228,6 +236,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libgnome*.so
 %attr(755,root,root) %{_libdir}/libgnome*.la
 %{_includedir}/gdk-pixbuf-1.0/gdk-pixbuf/gnome*.h
+%{_gtkdocdir}/gdk-pixbuf-1.0/gnome*
 
 %files gnome-static
 %defattr(644,root,root,755)
