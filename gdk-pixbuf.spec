@@ -1,7 +1,7 @@
-Summary:	GdkPixBuf
+Summary:	Image loading library used with GNOME
 Name:		gdk-pixbuf
 Version:	0.8.0
-Release:	1
+Release:	3
 License:	LGPL
 Group:		X11/Libraries
 Group(fr):	X11/Librairies
@@ -14,7 +14,6 @@ BuildRequires:	libtiff-devel
 BuildRequires:	libungif-devel
 BuildRequires:	gtk+-devel
 BuildRequires:	gnome-libs-devel
-BuildRequires:	esound-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -29,10 +28,10 @@ The GdkPixBuf library provides a number of features:
 
 %description -l pl
 Biblioteka GdkPixBuf posiada du¿e mo¿liwo¶ci:
-    - funkcje wspomagaj±ce ³adowanie obrazków
-    - oddanie GdkPixBuf w ró¿nych formatach, do rysowania (okna, pixmapy)
-      czy bufory GdkRGB
-    - interfejs pamiêci podrêcznej
+ - funkcje wspomagaj±ce ³adowanie obrazków,
+ - oddanie GdkPixBuf w ró¿nych formatach, do rysowania (okna, pixmapy)
+   czy bufory GdkRGB,
+ - interfejs pamiêci podrêcznej.
 
 %package devel
 Summary:	Libraries and include files for the gdk-pixbuf
