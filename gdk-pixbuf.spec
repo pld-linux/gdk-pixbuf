@@ -28,6 +28,13 @@ The GdkPixBuf library provides a number of features:
 	  drawables (windows, pixmaps), GdkRGB buffers,
 	- a cache interface.
 
+%description -l pl
+Biblioteka GdkPixBuf posiada du¿e mo¿liwo¶ci:
+    - funkcje wspomagaj±ce ³adowanie obrazków
+    - oddanie GdkPixBuf w ró¿nych formatach, do rysowania (okna, pixmapy)
+      czy bufory GdkRGB
+    - interfejs pamiêci podrêcznej
+
 %package devel
 Summary:	Libraries and include files for the gdk-pixbuf
 Group:		Development/Libraries
@@ -38,6 +45,9 @@ Requires:	%{name} = %{version}
 %description devel
 Libraries and include files for the gdk-pixbuf.
 
+%description -l pl devel
+Biblioteki i pliki nag³ówkowe dla gdk-pixbuf.
+
 %package static
 Summary:	Static gdk-pixbuf libraries
 Group:		Development/Libraries
@@ -47,6 +57,9 @@ Requires:	%{name}-devel = %{version}
 
 %description static
 Static bonobo libraries.
+
+%description -l pl static
+Statyczne biblioteki bonobo
 
 %prep
 %setup -q
