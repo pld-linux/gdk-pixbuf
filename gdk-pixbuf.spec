@@ -1,12 +1,13 @@
 Summary:	GdkPixBuf
 Name:		gdk-pixbuf
-Version:	0.6.0
+Version:	0.7.0
 Release:	1
 License:	LGPL
-Group:		Libraries
-Group(fr):	Librairies
-Group(pl):	Biblioteki
-Source:		ftp://ftp.gnome.org/pub/GNOME/stable/sources/gdk-pixbuf/%{name}-%{version}.tar.gz
+Group:		X11/Libraries
+Group(fr):	X11/Librairies
+Group(pl):	X11/Biblioteki
+Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/gdk-pixbuf/%{name}-%{version}.tar.gz
+PAtch0:		gdk-pixbuf-INCLUDES_fix.patch
 URL:		http://www.gnome.org/
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
@@ -37,9 +38,9 @@ Biblioteka GdkPixBuf posiada du¿e mo¿liwo¶ci:
 
 %package devel
 Summary:	Libraries and include files for the gdk-pixbuf
-Group:		Development/Libraries
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
+Group:		X11/Development/Libraries
+Group(fr):	X11/Development/Librairies
+Group(pl):	X11/Programowanie/Biblioteki
 Requires:	%{name} = %{version}
 
 %description devel
@@ -50,21 +51,23 @@ Biblioteki i pliki nag³ówkowe dla gdk-pixbuf.
 
 %package static
 Summary:	Static gdk-pixbuf libraries
-Group:		Development/Libraries
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
+Group:		X11/Development/Libraries
+Group(fr):	X11/Development/Librairies
+Group(pl):	X11/Programowanie/Biblioteki
 Requires:	%{name}-devel = %{version}
 
 %description static
-Static bonobo libraries.
+Static gdk-pixbuf libraries.
 
 %description -l pl static
-Statyczne biblioteki bonobo
+Statyczne biblioteki gdk-pixbuf.
 
 %prep
 %setup -q
+%patch -p1
 
 %build
+automake
 LDFLAGS="-s"; export LDFLAGS
 %configure
 
@@ -93,7 +96,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %dir %{_libdir}/gdk-pixbuf
 %dir %{_libdir}/gdk-pixbuf/loaders
-%attr(755,root,root) %{_libdir}/gdk-pixbuf/loaders/lib*.so
+%attr(755,root,root) %{_libdir}/gdk-pixbuf/loaders/lib*.so*
 %attr(755,root,root) %{_libdir}/gdk-pixbuf/loaders/lib*.la
 
 %files devel
