@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_without	gnome	# build without libgnomecanvaspixbuf (which requires GNOME)
+%bcond_without	gnome1	# build without libgnomecanvaspixbuf (which requires GNOME)
 #
 Summary:	Image loading library used with GNOME
 Summary(pl):	Biblioteka ³aduj±ca obrazki u¿ywana w GNOME
@@ -23,7 +23,7 @@ URL:		http://www.gnome.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gtk+-devel
-%{?with_gnome:BuildRequires:	gnome-libs-devel}
+%{?with_gnome1:BuildRequires:	gnome-libs-devel}
 BuildRequires:	libjpeg-devel
 BuildRequires:	libtiff-devel
 BuildRequires:	libtool
@@ -179,7 +179,7 @@ Czê¶æ gdk-pixbuf zwi±zana z GNOME - wersja statyczna.
 %configure \
 	--disable-gtk-doc \
 	--with-html-dir=%{_gtkdocdir} \
-	%{!?with_gnome:--without-gnome}
+	%{!?with_gnome1:--without-gnome}
 
 %{__make} \
 	AS="%{__cc}"
@@ -233,7 +233,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_libdir}/libgdk*.a
 
-%if %{with gnome}
+%if %{with gnome1}
 %files gnome
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgnome*.so.*.*
