@@ -19,3 +19,42 @@
  AC_PATH_XTRA
  
  dnl  Initialize maintainer mode
+--- gdk-pixbuf-0.16.0/gdk-pixbuf/Makefile.am.wiget	Mon Apr 15 19:06:40 2002
++++ gdk-pixbuf-0.16.0/gdk-pixbuf/Makefile.am	Mon Apr 15 19:08:31 2002
+@@ -18,7 +18,7 @@
+ 
+ libgnomecanvaspixbuf_la_LDFLAGS = -version-info 1:0:0 $(EXTRA_GNOME_LIBS)
+ 
+-libexecdir = $(libdir)/gdk-pixbuf/loaders
++loadersdir = $(libdir)/gdk-pixbuf/loaders
+ 
+ #
+ # The PNG plugin.
+@@ -118,7 +118,7 @@
+ 
+ if BUILD_DYNAMIC_MODULES
+ 
+-libexec_LTLIBRARIES = 	\
++loaders_LTLIBRARIES = 	\
+ 	$(PNG_LIB)	\
+ 	$(JPEG_LIB)	\
+ 	$(GIF_LIB)	\
+@@ -134,7 +134,7 @@
+ extra_sources = 
+ 
+ else
+-libexec_LTLIBRARIES = 
++loaders_LTLIBRARIES = 
+ 
+ extra_sources = $(libpixbufloader_png_la_SOURCES) 	\
+ 		$(libpixbufloader_jpeg_la_SOURCES) 	\
+--- gdk-pixbuf-0.16.0/doc/Makefile.am.wiget	Mon Apr 15 19:09:12 2002
++++ gdk-pixbuf-0.16.0/doc/Makefile.am	Mon Apr 15 19:11:27 2002
+@@ -157,6 +157,7 @@
+ 	fi)
+ #	  echo '-- Installing $(srcdir)/html/index.sgml' ; \
+ #	  $(INSTALL_DATA) $(srcdir)/html/index.sgml $(DESTDIR)$(TARGET_DIR); \
++#
+ 
+ #
+ # Require gtk-doc when making dist
