@@ -83,7 +83,7 @@ baseados nessa biblioteca.
 %package static
 Summary:	Static gdk-pixbuf libraries
 Summary(pl):	Biblioteki statyczne gdk-pixbuf
-Summary(pt_BR):	Bibliotecas estáticas para desenvolvimento com gdk-pixbuf.
+Summary(pt_BR):	Bibliotecas estáticas para desenvolvimento com gdk-pixbuf
 Group:		X11/Development/Libraries
 Group(de):	X11/Entwicklung/Libraries
 Group(es):	X11/Desarrollo/Bibliotecas
