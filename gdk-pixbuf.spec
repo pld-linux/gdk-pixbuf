@@ -1,3 +1,4 @@
+#
 # Conditional build:
 %bcond_without	gnome1	# build without libgnomecanvaspixbuf (which requires GNOME)
 #
