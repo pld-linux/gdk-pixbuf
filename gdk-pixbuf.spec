@@ -1,9 +1,10 @@
 Summary:	Image loading library used with GNOME
 Name:		gdk-pixbuf
 Version:	0.9.0
-Release:	1
+Release:	2
 License:	LGPL
 Group:		X11/Libraries
+Group(de):	X11/Libraries
 Group(fr):	X11/Librairies
 Group(pl):	X11/Biblioteki
 Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/gdk-pixbuf/%{name}-%{version}.tar.gz
@@ -17,7 +18,6 @@ BuildRequires:	gnome-libs-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
-%define		_m4datadir	/usr/share/aclocal
 
 %description
 The GdkPixBuf library provides a number of features:
@@ -36,6 +36,7 @@ Biblioteka GdkPixBuf posiada du¿e mo¿liwo¶ci:
 %package devel
 Summary:	Libraries and include files for the gdk-pixbuf
 Group:		X11/Development/Libraries
+Group(de):	X11/Entwicklung/Libraries
 Group(fr):	X11/Development/Librairies
 Group(pl):	X11/Programowanie/Biblioteki
 Requires:	%{name} = %{version}
@@ -49,6 +50,7 @@ Biblioteki i pliki nag³ówkowe dla gdk-pixbuf.
 %package static
 Summary:	Static gdk-pixbuf libraries
 Group:		X11/Development/Libraries
+Group(de):	X11/Entwicklung/Libraries
 Group(fr):	X11/Development/Librairies
 Group(pl):	X11/Programowanie/Biblioteki
 Requires:	%{name}-devel = %{version}
@@ -71,12 +73,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	m4datadir=%{_m4datadir}
+	m4datadir=%{_aclocaldir}
 
 gzip -9nf AUTHORS ChangeLog NEWS README
-
-strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* \
-	$RPM_BUILD_ROOT%{_libdir}/gdk-pixbuf/loaders/lib*.so
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -100,7 +99,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/lib*.la
 %{_includedir}/gdk-pixbuf
-%{_m4datadir}/*
+%{_aclocaldir}/*
 
 %files static
 %defattr(644,root,root,755)
