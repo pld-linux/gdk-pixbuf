@@ -71,6 +71,7 @@ Summary(ru):	Средства разработки для программ с GdkPixBuf
 Summary(uk):	Засоби розробки для програм з GdkPixBuf
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}
+Requires:	gtk+-devel
 Requires:	gtk-doc-common
 
 %description devel
