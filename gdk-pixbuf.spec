@@ -28,7 +28,6 @@ BuildRequires:	libpng >= 1.0.8
 BuildRequires:	libungif-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
 %define		_gtkdocdir	%{_defaultdocdir}/gtk-doc/html
 
 %description
