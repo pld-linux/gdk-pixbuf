@@ -59,10 +59,10 @@ Requires:	%{name} = %{version}
 %description devel
 Include files for the gdk-pixbuf.
 
-%description -l pl devel
+%description devel -l pl
 Pliki nag³ówkowe dla gdk-pixbuf.
 
-%description -l pt_BR devel
+%description devel -l pt_BR
 Bibliotecas e arquivos cabeçalhos para desenvolvimento de aplicativos
 baseados nessa biblioteca.
 
@@ -76,10 +76,10 @@ Requires:	%{name}-devel = %{version}
 %description static
 Static gdk-pixbuf libraries.
 
-%description -l pl static
+%description static -l pl
 Statyczne biblioteki gdk-pixbuf.
 
-%description -l pt_BR static
+%description static -l pt_BR
 Bibliotecas estáticas para desenvolvimento com gdk-pixbuf.
 
 %prep
