@@ -6,6 +6,8 @@
 Summary:	Image loading library used with GNOME
 Summary(pl):	Biblioteka Ёaduj╠ca obrazki u©ywana w GNOME
 Summary(pt_BR):	Biblioteca GdkPixBuf para manipulaГЦo de imagens
+Summary(ru):	Библиотека загрузки изображений и рендеринга для Gdk
+Summary(uk):	Б╕бл╕отека завантаження зображень та рендерингу для Gdk
 Name:		gdk-pixbuf
 Version:	0.17.0
 Release:	1
@@ -50,10 +52,20 @@ A biblioteca GdkPixBuf oferece:
 - Maneira simples de carregar imagens animadas.
 - VАrios formatos: desenhАveis (windows, pixmaps), buffers GdkRGB.
 
+%description -l ru
+Библиотека GdkPixBuf предоставляет возможность загружать изображения и
+рендерить их в разные форматы: окна, пиксмапы, буферы GdkRGB.
+
+%description -l uk
+Б╕бл╕отека GdkPixBuf нада╓ можливост╕ завантажувати зображення та
+рендерити ╖х в р╕зн╕ формати: в╕кна, п╕ксмапи, буфери GdkRGB.
+
 %package devel
 Summary:	Include files for the gdk-pixbuf
 Summary(pl):	Pliki nagЁСwkowe dla gdk-pixbuf
 Summary(pt_BR):	Bibliotecas e arquivos cabeГalhos para desenvolvimento
+Summary(ru):	Средства разработки для программ с GdkPixBuf
+Summary(uk):	Засоби розробки для програм з GdkPixBuf
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
 
@@ -67,10 +79,18 @@ Pliki nagЁСwkowe dla gdk-pixbuf.
 Bibliotecas e arquivos cabeГalhos para desenvolvimento de aplicativos
 baseados nessa biblioteca.
 
+%description devel -l ru
+Файлы, необходимые для разработки программ, использующих GdkPixBuf.
+
+%description devel -l uk
+Файли, необх╕дн╕ для розробки програм, що користуються GdkPixBuf.
+
 %package static
 Summary:	Static gdk-pixbuf libraries
 Summary(pl):	Biblioteki statyczne gdk-pixbuf
 Summary(pt_BR):	Bibliotecas estАticas para desenvolvimento com gdk-pixbuf
+Summary(ru):	Статические библиотеки для программ с GdkPixBuf
+Summary(uk):	Статичн╕ б╕бл╕отеки для програм з GdkPixBuf
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}
 
@@ -83,9 +103,19 @@ Statyczne biblioteki gdk-pixbuf.
 %description static -l pt_BR
 Bibliotecas estАticas para desenvolvimento com gdk-pixbuf.
 
+%description static -l ru
+Этот пакет содержит статические библиотеки для сборки программ,
+использующих GdkPixBuf.
+
+%description static -l uk
+Цей пакет м╕стить статичн╕ б╕бл╕отеки для програм, як╕ використовують
+GdkPixBuf.
+
 %package gnome
 Summary:	GNOME part of gdk-pixbuf library
 Summary(pl):	CzЙ╤Ф gdk-pixbuf zwi╠zana z GNOME
+Summary(ru):	Библиотека загрузки изображений и рендеринга для Gdk
+Summary(uk):	Б╕бл╕отека завантаження зображень та рендерингу для Gdk
 Group:		X11/Libraries
 Requires:	%{name} = %{version}
 
@@ -94,6 +124,14 @@ GNOME part of gdk-pixbuf library.
 
 %description gnome -l pl
 CzЙ╤Ф gdk-pixbuf zwi╠zana z GNOME.
+
+%description gnome -l ru
+Библиотека GdkPixBuf предоставляет возможность загружать изображения и
+рендерить их в разные форматы: окна, пиксмапы, буферы GdkRGB.
+
+%description gnome -l uk
+Б╕бл╕отека GdkPixBuf нада╓ можливост╕ завантажувати зображення та
+рендерити ╖х в р╕зн╕ формати: в╕кна, п╕ксмапи, буфери GdkRGB.
 
 %package gnome-devel
 Summary:	GNOME part of gdk-pixbuf library - development files
@@ -146,8 +184,6 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	m4datadir=%{_aclocaldir}
 
-gzip -9nf AUTHORS ChangeLog NEWS README
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -166,7 +202,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc *.gz
+%doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/gdk-pixbuf-config
 %attr(755,root,root) %{_libdir}/gdk*.sh
 %attr(755,root,root) %{_libdir}/libgdk*.so
