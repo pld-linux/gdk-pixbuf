@@ -14,6 +14,8 @@ BuildRequires:	libtiff-devel
 BuildRequires:	libungif-devel
 BuildRequires:	gtk+-devel
 BuildRequires:	XFree86-devel
+BuildRequires:	gnome-libs-devel
+BuildRequires:	esound-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %define		_prefix		/usr/X11R6
