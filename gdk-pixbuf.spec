@@ -1,4 +1,6 @@
 #
+# TODO: CAN-2004-0753 CAN-2004-0782 CAN-2004-0783 CAN-2004-0788
+#
 # Conditional build:
 %bcond_without	gnome1	# build without libgnomecanvaspixbuf (which requires GNOME)
 #
