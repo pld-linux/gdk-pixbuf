@@ -5,7 +5,7 @@ Summary(pl):	Biblioteka ³aduj±ca obrazki u¿ywana w GNOME
 Summary(pt_BR):	Biblioteca GdkPixBuf para manipulação de imagens
 Name:		gdk-pixbuf
 Version:	0.16.0
-Release:	2
+Release:	3
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
@@ -92,8 +92,12 @@ libtoolize --copy --force
 aclocal
 autoconf
 automake -a -c -f
+if [ -f %{_pkgconfigdir}/libpng12.pc ] ; then
+	CPPFLAGS="`pkg-config libpng12 --cflags`"
+fi
 %configure \
-	--disable-gtk-doc
+	--disable-gtk-doc \
+	CPPFLAGS="$CPPFLAGS"
 %{__make} AS="%{__cc}"
 
 %install
