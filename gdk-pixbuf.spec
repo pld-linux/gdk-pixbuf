@@ -1,6 +1,3 @@
-#
-# TODO: CAN-2004-0753 CAN-2004-0782 CAN-2004-0783 CAN-2004-0788
-#
 # Conditional build:
 %bcond_without	gnome1	# build without libgnomecanvaspixbuf (which requires GNOME)
 #
@@ -12,7 +9,7 @@ Summary(ru):	Библиотека загрузки изображений и рендеринга для Gdk
 Summary(uk):	Б╕бл╕отека завантаження зображень та рендерингу для Gdk
 Name:		gdk-pixbuf
 Version:	0.22.0
-Release:	8.1
+Release:	9
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
