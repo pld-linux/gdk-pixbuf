@@ -23,10 +23,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 The GdkPixBuf library provides a number of features:
-	- image loading facilities,
-	- rendering of a GdkPixBuf into various formats:
-	  drawables (windows, pixmaps), GdkRGB buffers,
-	- a cache interface.
+ - image loading facilities,
+ - rendering of a GdkPixBuf into various formats: drawables (windows,
+   pixmaps), GdkRGB buffers,
+ - a cache interface.
 
 %description -l pl
 Biblioteka GdkPixBuf posiada du¿e mo¿liwo¶ci:
