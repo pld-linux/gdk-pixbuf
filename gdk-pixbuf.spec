@@ -15,6 +15,7 @@ Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gdk-pixbuf/0.22/%{name}-%{version}.tar.bz2
+# Source0-md5:	05fcb68ceaa338614ab650c775efc2f2
 Patch0:		%{name}-am.patch
 Patch1:		%{name}-nognome.patch
 URL:		http://www.gnome.org/
