@@ -1,7 +1,7 @@
 Summary:	Image loading library used with GNOME
 Name:		gdk-pixbuf
 Version:	0.8.0
-Release:	4
+Release: 5
 License:	LGPL
 Group:		X11/Libraries
 Group(fr):	X11/Librairies
@@ -9,7 +9,7 @@ Group(pl):	X11/Biblioteki
 Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/gdk-pixbuf/%{name}-%{version}.tar.gz
 URL:		http://www.gnome.org/
 BuildRequires:	libjpeg-devel
-BuildRequires:	libpng-devel
+BuildRequires:	libpng >= 1.0.8
 BuildRequires:	libtiff-devel
 BuildRequires:	libungif-devel
 BuildRequires:	gtk+-devel
