@@ -1,6 +1,6 @@
 Summary:	GdkPixBuf
 Name:		gdk-pixbuf
-Version: 	0.3
+Version: 	0.4
 Release: 	1
 Copyright: 	GPL
 Group:		Libraries
