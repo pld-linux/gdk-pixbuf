@@ -81,7 +81,8 @@ aclocal
 autoconf
 rm -f missing
 automake -a -c
-%configure
+%configure \
+	--enable-canvas-pixbuf
 %{__make}
 
 %install
