@@ -211,7 +211,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/gdk-pixbuf-config
 %attr(755,root,root) %{_libdir}/gdk*.sh
 %attr(755,root,root) %{_libdir}/libgdk*.so
-%attr(755,root,root) %{_libdir}/libgdk*.la
+%{_libdir}/libgdk*.la
 %dir %{_includedir}/gdk-pixbuf-1.0
 %dir %{_includedir}/gdk-pixbuf-1.0/gdk-pixbuf
 %{_includedir}/gdk-pixbuf-1.0/gdk-pixbuf/gdk*.h
@@ -234,7 +234,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/gnome*.sh
 %attr(755,root,root) %{_libdir}/libgnome*.so
-%attr(755,root,root) %{_libdir}/libgnome*.la
+%{_libdir}/libgnome*.la
 %{_includedir}/gdk-pixbuf-1.0/gdk-pixbuf/gnome*.h
 %{_gtkdocdir}/gdk-pixbuf-1.0/gnome*
 
