@@ -1,7 +1,7 @@
 Summary:	Image loading library used with GNOME
 Name:		gdk-pixbuf
-Version:	0.8.0
-Release: 5
+Version:	0.9.0
+Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Group(fr):	X11/Librairies
@@ -63,9 +63,7 @@ Statyczne biblioteki gdk-pixbuf.
 %setup -q
 
 %build
-LDFLAGS="-s"; export LDFLAGS
 %configure
-
 %{__make}
 
 %install
