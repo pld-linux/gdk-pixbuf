@@ -1,11 +1,13 @@
 Summary:	GdkPixBuf
 Name:		gdk-pixbuf
-Version: 	0.4
-Release: 	1
-Copyright: 	GPL
+Version:	0.5.0
+Release:	1
+License:	LGPL
 Group:		Libraries
-Source:		ftp://ftp.gnome.org/pub/GNOME/sources/gdk-pixbuf/%{name}-%{version}.tar.gz
-URL: 		http://www.gnome.org/
+Group(fr):	Librairies
+Group(pl):	Biblioteki
+Source:		ftp://ftp.gnome.org/pub/GNOME/stable/sources/gdk-pixbuf/%{name}-%{version}.tar.gz
+URL:		http://www.gnome.org/
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libtiff-devel
@@ -13,18 +15,20 @@ BuildRequires:	libungif-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %define		_prefix		/usr/X11R6
+%define		_m4datadir	/usr/share/acocal
 
 %description
 The GdkPixBuf library provides a number of features:
-
-        - Image loading facilities.
-        - Rendering of a GdkPixBuf into various formats:
-          drawables (windows, pixmaps), GdkRGB buffers.
-        - A cache interface
+	- image loading facilities,
+	- rendering of a GdkPixBuf into various formats:
+	  drawables (windows, pixmaps), GdkRGB buffers,
+	- a cache interface.
 
 %package devel
 Summary:	Libraries and include files for the gdk-pixbuf
 Group:		Development/Libraries
+Group(fr):	Development/Librairies
+Group(pl):	Programowanie/Biblioteki
 Requires:	%{name} = %{version}
 
 %description devel
@@ -33,6 +37,8 @@ Libraries and include files for the gdk-pixbuf.
 %package static
 Summary:	Static gdk-pixbuf libraries
 Group:		Development/Libraries
+Group(fr):	Development/Librairies
+Group(pl):	Programowanie/Biblioteki
 Requires:	%{name}-devel = %{version}
 
 %description static
@@ -50,7 +56,9 @@ make
 %install
 rm -rf $RPM_BUILD_ROOT
 
-make install DESTDIR=$RPM_BUILD_ROOT
+make install \
+	DESTDIR=$RPM_BUILD_ROOT \
+	m4datadir=%{_m4datadir}
 
 gzip -9nf AUTHORS ChangeLog NEWS README
 
@@ -74,12 +82,14 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %doc *.gz
+%attr(755,root,root) %{_bundir}/gdk-pixbuf-config
+%attr(755,root,root) %{_libdir}/*.sh
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/lib*.la
-%attr(755,root,root) %{_libdir}/*.sh
 %{_includedir}/gdk-pixbuf
+%{_m4datadir}/*
 
 %files static
-%defattr(644,root,root)
+%defattr(644,root,root,755)
 %{_libdir}/lib*.a
 %{_libdir}/gdk-pixbuf/loaders/lib*.a
