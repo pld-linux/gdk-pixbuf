@@ -10,6 +10,7 @@ Group(de):	X11/Libraries
 Group(fr):	X11/Librairies
 Group(pl):	X11/Biblioteki
 Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/gdk-pixbuf/%{name}-%{version}.tar.bz2
+Patch0:		%{name}-am.patch
 URL:		http://www.gnome.org/
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng >= 1.0.8
@@ -17,6 +18,9 @@ BuildRequires:	libtiff-devel
 BuildRequires:	libungif-devel
 BuildRequires:	gtk+-devel
 BuildRequires:	gnome-libs-devel
+BuildRequires:	libtool
+BuildRequires:	automake
+BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -65,8 +69,14 @@ Statyczne biblioteki gdk-pixbuf.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
+rm missing
+libtoolize --copy --force
+aclocal
+automake -a -c
+autoconf
 %configure
 %{__make}
 
