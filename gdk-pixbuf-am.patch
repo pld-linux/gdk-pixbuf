@@ -1,0 +1,12 @@
+diff -urN gdk-pixbuf-0.11.0.org/gdk-pixbuf/Makefile.am gdk-pixbuf-0.11.0/gdk-pixbuf/Makefile.am
+--- gdk-pixbuf-0.11.0.org/gdk-pixbuf/Makefile.am	Tue May  8 00:17:34 2001
++++ gdk-pixbuf-0.11.0/gdk-pixbuf/Makefile.am	Tue May  8 00:20:26 2001
+@@ -220,7 +220,7 @@
+ 	gdk-pixbuf-parse-color.c	\
+ 	$(extra_sources)
+ 
+-libgdk_pixbuf_xlib_la_LDFLAGS = -version-info 2:0:0 -export-dynamic $(GLIB_LIBS) $(X11_LIBS)
++libgdk_pixbuf_xlib_la_LDFLAGS = -version-info 2:0:0 -export-dynamic $(GLIB_LIBS)
+ libgdk_pixbuf_xlib_la_LIBADD = pixops/libpixops.la
+ 
+ 
