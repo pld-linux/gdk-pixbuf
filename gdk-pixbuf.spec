@@ -1,11 +1,14 @@
+
 #
 # _without_gnome - without GNOME (build without libgnomecanvaspixbuf)
+#
+
 Summary:	Image loading library used with GNOME
 Summary(pl):	Biblioteka ³aduj±ca obrazki u¿ywana w GNOME
 Summary(pt_BR):	Biblioteca GdkPixBuf para manipulação de imagens
 Name:		gdk-pixbuf
-Version:	0.16.0
-Release:	3.1
+Version:	0.17.0
+Release:	1
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
@@ -127,7 +130,7 @@ rm -f missing
 libtoolize --copy --force
 aclocal
 %{__autoconf}
-%{__automake}
+%{__automake} -a -c
 if [ -f %{_pkgconfigdir}/libpng12.pc ] ; then
 	CPPFLAGS="`pkg-config libpng12 --cflags`"
 fi
