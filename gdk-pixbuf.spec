@@ -188,6 +188,9 @@ rm -rf $RPM_BUILD_ROOT
 # resolve conflict with gtk+2-devel
 mv -f $RPM_BUILD_ROOT%{_gtkdocdir}/gdk-pixbuf{,-1.0}
 
+# no *.{a,la} for plugins - shut up check-files
+rm -f $RPM_BUILD_ROOT%{_libdir}/gdk-pixbuf/loaders/lib*.{a,la}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -222,7 +225,6 @@ rm -rf $RPM_BUILD_ROOT
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libgdk*.a
-%{_libdir}/gdk-pixbuf/loaders/lib*.a
 
 %if %{?_without_gnome:0}%{!?_without_gnome:1}
 %files gnome
