@@ -10,3 +10,13 @@ diff -urN gdk-pixbuf-0.11.0.org/gdk-pixbuf/Makefile.am gdk-pixbuf-0.11.0/gdk-pix
  libgdk_pixbuf_xlib_la_LIBADD = pixops/libpixops.la
  
  
+--- gdk-pixbuf-0.11.0/configure.in.orig	Thu Apr 26 21:46:16 2001
++++ gdk-pixbuf-0.11.0/configure.in	Fri Oct 19 22:38:48 2001
+@@ -25,6 +25,7 @@
+ AC_PROG_LN_S
+ AC_PROG_MAKE_SET
+ AC_PROG_CPP
++AM_PROG_AS
+ AC_PATH_XTRA
+ 
+ dnl  Initialize maintainer mode

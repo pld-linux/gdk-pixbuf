@@ -5,7 +5,7 @@ Summary(pl):	Biblioteka Ёaduj╠ca obrazki u©ywana w GNOME
 Summary(pt_BR):	Biblioteca GdkPixBuf para manipulaГЦo de imagens
 Name:		gdk-pixbuf
 Version:	0.11.0
-Release:	9
+Release:	10
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
@@ -21,12 +21,12 @@ Patch0:		%{name}-am.patch
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	libtool
 BuildRequires:	gtk+-devel
 %{!?_without_gnome:BuildRequires:	gnome-libs-devel}
 BuildRequires:	libjpeg-devel
 BuildRequires:	libtiff-devel
 BuildRequires:	libpng >= 1.0.8
-BuildRequires:	libtool
 BuildRequires:	libungif-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gdk-pixbuf-gnome
@@ -68,7 +68,7 @@ Group(pt_BR):	X11/Desenvolvimento/Bibliotecas
 Group(ru):	X11/Разработка/Библиотеки
 Group(uk):	X11/Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version}
-Requires:	gnome-libs-devel
+%{!?_without_gnome:Requires:	gnome-libs-devel}
 
 %description devel
 Include files for the gdk-pixbuf.
@@ -108,16 +108,14 @@ Bibliotecas estАticas para desenvolvimento com gdk-pixbuf.
 %patch0 -p1
 
 %build
-rm missing
+rm -f missing
 libtoolize --copy --force
 aclocal
 autoconf
-rm -f missing
 automake -a -c
 %configure \
-	--enable-canvas-pixbuf \
 	--disable-gtk-doc
-%{__make}
+%{__make} AS="%{__cc}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
