@@ -5,7 +5,7 @@ Summary(pl):	Biblioteka ³aduj±ca obrazki u¿ywana w GNOME
 Summary(pt_BR):	Biblioteca GdkPixBuf para manipulação de imagens
 Name:		gdk-pixbuf
 Version:	0.16.0
-Release:	3
+Release:	3.1
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
@@ -22,7 +22,6 @@ BuildRequires:	libtiff-devel
 BuildRequires:	libpng >= 1.0.8
 BuildRequires:	libungif-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-Obsoletes:	gdk-pixbuf-gnome
 
 %define		_prefix		/usr/X11R6
 
@@ -54,7 +53,6 @@ Summary(pl):	Pliki nag³ówkowe dla gdk-pixbuf
 Summary(pt_BR):	Bibliotecas e arquivos cabeçalhos para desenvolvimento
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
-%{!?_without_gnome:Requires:	gnome-libs-devel}
 
 %description devel
 Include files for the gdk-pixbuf.
@@ -81,6 +79,44 @@ Statyczne biblioteki gdk-pixbuf.
 
 %description static -l pt_BR
 Bibliotecas estáticas para desenvolvimento com gdk-pixbuf.
+
+%package gnome
+Summary:	GNOME part of gdk-pixbuf library
+Summary(pl):	Czê¶æ gdk-pixbuf zwi±zana z GNOME
+Group:		X11/Libraries
+Requires:	%{name} = %{version}
+
+%description gnome
+GNOME part of gdk-pixbuf library.
+
+%description gnome -l pl
+Czê¶æ gdk-pixbuf zwi±zana z GNOME.
+
+%package gnome-devel
+Summary:	GNOME part of gdk-pixbuf library - development files
+Summary(pl):	Czê¶æ gdk-pixbuf zwi±zana z GNOME - pliki dla programistów
+Group:		X11/Development/Libraries
+Requires:	%{name}-gnome = %{version}
+Requires:	%{name}-devel = %{version}
+Requires:	gnome-libs-devel
+
+%description gnome-devel
+GNOME part of gdk-pixbuf library - development files.
+
+%description gnome-devel -l pl
+Czê¶æ gdk-pixbuf zwi±zana z GNOME - pliki dla programistów.
+
+%package gnome-static
+Summary:	GNOME part of gdk-pixbuf library - static version
+Summary(pl):	Czê¶æ gdk-pixbuf zwi±zana z GNOME - wersja statyczna
+Group:		X11/Development/Libraries
+Requires:	%{name}-gnome-devel = %{version}
+
+%description gnome-static
+GNOME part of gdk-pixbuf library - static version.
+
+%description gnome-static -l pl
+Czê¶æ gdk-pixbuf zwi±zana z GNOME - wersja statyczna.
 
 %prep
 %setup -q
@@ -115,10 +151,12 @@ rm -rf $RPM_BUILD_ROOT
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
+%post	gnome -p /sbin/ldconfig
+%postun	gnome -p /sbin/ldconfig
+
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgdk*.so.*.*
-%{!?_without_gnome:%attr(755,root,root) %{_libdir}/libgnome*.so.*.*}
 %dir %{_libdir}/gdk-pixbuf
 %dir %{_libdir}/gdk-pixbuf/loaders
 %attr(755,root,root) %{_libdir}/gdk-pixbuf/loaders/lib*.so*
@@ -128,16 +166,31 @@ rm -rf $RPM_BUILD_ROOT
 %doc *.gz
 %attr(755,root,root) %{_bindir}/gdk-pixbuf-config
 %attr(755,root,root) %{_libdir}/gdk*.sh
-%{!?_without_gnome:%attr(755,root,root) %{_libdir}/gnome*.sh}
 %attr(755,root,root) %{_libdir}/libgdk*.so
-%{!?_without_gnome:%attr(755,root,root) %{_libdir}/libgnome*.so}
 %attr(755,root,root) %{_libdir}/libgdk*.la
-%{!?_without_gnome:%attr(755,root,root) %{_libdir}/libgnome*.la}
-%{_includedir}/gdk-pixbuf-1.0
+%dir %{_includedir}/gdk-pixbuf-1.0
+%dir %{_includedir}/gdk-pixbuf-1.0/gdk-pixbuf
+%{_includedir}/gdk-pixbuf-1.0/gdk-pixbuf/gdk*.h
 %{_aclocaldir}/*
 
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libgdk*.a
-%{!?_without_gnome:%{_libdir}/libgnome*.a}
 %{_libdir}/gdk-pixbuf/loaders/lib*.a
+
+%if %{?_without_gnome:0}%{!?_without_gnome:1}
+%files gnome
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/libgnome*.so.*.*
+
+%files gnome-devel
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/gnome*.sh
+%attr(755,root,root) %{_libdir}/libgnome*.so
+%attr(755,root,root) %{_libdir}/libgnome*.la
+%{_includedir}/gdk-pixbuf-1.0/gdk-pixbuf/gnome*.h
+
+%files gnome-static
+%defattr(644,root,root,755)
+%{_libdir}/libgnome*.a
+%endif
