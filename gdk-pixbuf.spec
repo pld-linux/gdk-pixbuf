@@ -1,7 +1,7 @@
 Summary:	Image loading library used with GNOME
 Name:		gdk-pixbuf
 Version:	0.9.0
-Release:	3
+Release:	4
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
@@ -90,7 +90,6 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/gdk-pixbuf
 %dir %{_libdir}/gdk-pixbuf/loaders
 %attr(755,root,root) %{_libdir}/gdk-pixbuf/loaders/lib*.so*
-%attr(755,root,root) %{_libdir}/gdk-pixbuf/loaders/lib*.la
 
 %files devel
 %defattr(644,root,root,755)
