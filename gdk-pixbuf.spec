@@ -1,6 +1,6 @@
 #
 # Conditional build:
-# _without_gnome - build without libgnomecanvaspixbuf (which requires GNOME)
+%bcond_without	gnome	# build without libgnomecanvaspixbuf (which requires GNOME)
 #
 Summary:	Image loading library used with GNOME
 Summary(pl):	Biblioteka Ёaduj╠ca obrazki u©ywana w GNOME
@@ -10,7 +10,7 @@ Summary(ru):	Библиотека загрузки изображений и рендеринга для Gdk
 Summary(uk):	Б╕бл╕отека завантаження зображень та рендерингу для Gdk
 Name:		gdk-pixbuf
 Version:	0.22.0
-Release:	6
+Release:	7
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
@@ -21,12 +21,12 @@ Patch1:		%{name}-nognome.patch
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	libtool
 BuildRequires:	gtk+-devel
-%{!?_without_gnome:BuildRequires:	gnome-libs-devel}
+%{?with_gnome:BuildRequires:	gnome-libs-devel}
 BuildRequires:	libjpeg-devel
 BuildRequires:	libtiff-devel
-BuildRequires:	libpng >= 1.0.8
+BuildRequires:	libtool
+BuildRequires:	libpng-devel >= 1.0.8
 BuildRequires:	libungif-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -170,7 +170,6 @@ CzЙ╤Ф gdk-pixbuf zwi╠zana z GNOME - wersja statyczna.
 %patch1 -p1
 
 %build
-rm -f missing
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
@@ -178,8 +177,9 @@ rm -f missing
 %configure \
 	--disable-gtk-doc \
 	--with-html-dir=%{_gtkdocdir} \
-	%{?_without_gnome:--without-gnome}
-%{__make} AS="%{__cc}"
+	%{!?with_gnome:--without-gnome}
+%{__make} \
+	AS="%{__cc}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -223,14 +223,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/gdk-pixbuf-1.0/gdk-pixbuf/gdk*.h
 %{_aclocaldir}/*
 %dir %{_gtkdocdir}/gdk-pixbuf-1.0
-%{_gtkdocdir}/gdk-pixbuf-1.0/[^g]*
-%{_gtkdocdir}/gdk-pixbuf-1.0/g[^n]*
+%{_gtkdocdir}/gdk-pixbuf-1.0/[!g]*
+%{_gtkdocdir}/gdk-pixbuf-1.0/g[!n]*
 
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libgdk*.a
 
-%if %{?_without_gnome:0}%{!?_without_gnome:1}
+%if %{with gnome}
 %files gnome
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgnome*.so.*.*
