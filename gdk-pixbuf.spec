@@ -8,8 +8,8 @@ Summary(pt_BR):	Biblioteca GdkPixBuf para manipulaГЦo de imagens
 Summary(ru):	Библиотека загрузки изображений и рендеринга для Gdk
 Summary(uk):	Б╕бл╕отека завантаження зображень та рендерингу для Gdk
 Name:		gdk-pixbuf
-Version:	0.19.0
-Release:	2
+Version:	0.21.0
+Release:	1
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
