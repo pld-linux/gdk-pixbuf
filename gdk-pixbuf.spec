@@ -4,8 +4,8 @@ Summary:	Image loading library used with GNOME
 Summary(pl):	Biblioteka ³aduj±ca obrazki u¿ywana w GNOME
 Summary(pt_BR):	Biblioteca GdkPixBuf para manipulação de imagens
 Name:		gdk-pixbuf
-Version:	0.11.0
-Release:	10
+Version:	0.13.0
+Release:	1
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
@@ -150,7 +150,7 @@ rm -rf $RPM_BUILD_ROOT
 %{!?_without_gnome:%attr(755,root,root) %{_libdir}/libgnome*.so}
 %attr(755,root,root) %{_libdir}/libgdk*.la
 %{!?_without_gnome:%attr(755,root,root) %{_libdir}/libgnome*.la}
-%{_includedir}/gdk-pixbuf
+%{_includedir}/gdk-pixbuf-1.0
 %{_aclocaldir}/*
 
 %files static
