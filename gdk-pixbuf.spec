@@ -70,7 +70,7 @@ Summary(ko):	gdk-pixbuf юю©Кга╥н╠в╥╔ю╩ ╟Ё╧ъгр╤╖ ╩Г©К╣г╢б ╤Сюл╨Й╥╞╦╝©м гЛ╢Уфдюо
 Summary(ru):	Средства разработки для программ с GdkPixBuf
 Summary(uk):	Засоби розробки для програм з GdkPixBuf
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{epoch}:%{version}
 Requires:	gtk-doc-common
 
 %description devel
@@ -96,7 +96,7 @@ Summary(pt_BR):	Bibliotecas estАticas para desenvolvimento com gdk-pixbuf
 Summary(ru):	Статические библиотеки для программ с GdkPixBuf
 Summary(uk):	Статичн╕ б╕бл╕отеки для програм з GdkPixBuf
 Group:		X11/Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{epoch}:%{version}
 
 %description static
 Static gdk-pixbuf libraries.
@@ -121,7 +121,7 @@ Summary(pl):	CzЙ╤Ф gdk-pixbuf zwi╠zana z GNOME
 Summary(ru):	Библиотека загрузки изображений и рендеринга для Gdk
 Summary(uk):	Б╕бл╕отека завантаження зображень та рендерингу для Gdk
 Group:		X11/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{epoch}:%{version}
 
 %description gnome
 GNOME part of gdk-pixbuf library.
@@ -141,8 +141,8 @@ CzЙ╤Ф gdk-pixbuf zwi╠zana z GNOME.
 Summary:	GNOME part of gdk-pixbuf library - development files
 Summary(pl):	CzЙ╤Ф gdk-pixbuf zwi╠zana z GNOME - pliki dla programistСw
 Group:		X11/Development/Libraries
-Requires:	%{name}-gnome = %{version}
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-gnome = %{epoch}:%{version}
+Requires:	%{name}-devel = %{epoch}:%{version}
 Requires:	gnome-libs-devel
 
 %description gnome-devel
@@ -155,7 +155,7 @@ CzЙ╤Ф gdk-pixbuf zwi╠zana z GNOME - pliki dla programistСw.
 Summary:	GNOME part of gdk-pixbuf library - static version
 Summary(pl):	CzЙ╤Ф gdk-pixbuf zwi╠zana z GNOME - wersja statyczna
 Group:		X11/Development/Libraries
-Requires:	%{name}-gnome-devel = %{version}
+Requires:	%{name}-gnome-devel = %{epoch}:%{version}
 
 %description gnome-static
 GNOME part of gdk-pixbuf library - static version.
