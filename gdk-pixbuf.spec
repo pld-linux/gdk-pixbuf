@@ -1,7 +1,7 @@
 Summary:	GdkPixBuf
 Name:		gdk-pixbuf
 Version:	0.5.0
-Release:	2
+Release:	3
 License:	LGPL
 Group:		Libraries
 Group(fr):	Librairies
@@ -15,7 +15,7 @@ BuildRequires:	libungif-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %define		_prefix		/usr/X11R6
-%define		_m4datadir	/usr/share/acocal
+%define		_m4datadir	/usr/share/aclocal
 
 %description
 The GdkPixBuf library provides a number of features:
