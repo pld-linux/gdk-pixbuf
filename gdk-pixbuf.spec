@@ -165,7 +165,7 @@ Czê¶æ gdk-pixbuf zwi±zana z GNOME - wersja statyczna.
 
 %build
 rm -f missing
-libtoolize --copy --force
+%{__libtoolize}
 aclocal
 %{__autoconf}
 %{__automake} -a -c
