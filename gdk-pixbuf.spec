@@ -82,7 +82,7 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %doc *.gz
-%attr(755,root,root) %{_bundir}/gdk-pixbuf-config
+%attr(755,root,root) %{_bindir}/gdk-pixbuf-config
 %attr(755,root,root) %{_libdir}/*.sh
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/lib*.la
