@@ -42,8 +42,6 @@ Static bonobo libraries.
 %setup -q
 
 %build
-gettextize --copy --force
-automake
 LDFLAGS="-s"; export LDFLAGS
 %configure
 
