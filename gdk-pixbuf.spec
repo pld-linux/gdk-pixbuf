@@ -1,5 +1,7 @@
+#
+# _without_gnome - without GNOME (build without libgnomecanvaspixbuf)
 Summary:	Image loading library used with GNOME
-Summary(pl):	Bibliotek ³aduj±ca obrazki u¿ywana w GNOME
+Summary(pl):	Biblioteka ³aduj±ca obrazki u¿ywana w GNOME
 Name:		gdk-pixbuf
 Version:	0.11.0
 Release:	5
@@ -7,6 +9,7 @@ Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
 Group(de):	X11/Libraries
+Group(es):	X11/Bibliotecas
 Group(fr):	X11/Librairies
 Group(pl):	X11/Biblioteki
 Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/gdk-pixbuf/%{name}-%{version}.tar.bz2
@@ -17,7 +20,7 @@ BuildRequires:	libpng >= 1.0.8
 BuildRequires:	libtiff-devel
 BuildRequires:	libungif-devel
 BuildRequires:	gtk+-devel
-BuildRequires:	gnome-libs-devel
+%{!?_without_gnome:BuildRequires:	gnome-libs-devel}
 BuildRequires:	libtool
 BuildRequires:	automake
 BuildRequires:	autoconf
@@ -98,7 +101,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/libgdk*.so.*.*
+%{!?_without_gnome:%attr(755,root,root) %{_libdir}/libgnome*.so.*.*}
 %dir %{_libdir}/gdk-pixbuf
 %dir %{_libdir}/gdk-pixbuf/loaders
 %attr(755,root,root) %{_libdir}/gdk-pixbuf/loaders/lib*.so*
@@ -107,13 +111,17 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc *.gz
 %attr(755,root,root) %{_bindir}/gdk-pixbuf-config
-%attr(755,root,root) %{_libdir}/*.sh
-%attr(755,root,root) %{_libdir}/lib*.so
-%attr(755,root,root) %{_libdir}/lib*.la
+%attr(755,root,root) %{_libdir}/gdk*.sh
+%{!?_without_gnome:%attr(755,root,root) %{_libdir}/gnome*.sh}
+%attr(755,root,root) %{_libdir}/libgdk*.so
+%{!?_without_gnome:%attr(755,root,root) %{_libdir}/libgnome*.so}
+%attr(755,root,root) %{_libdir}/libgdk*.la
+%{!?_without_gnome:%attr(755,root,root) %{_libdir}/libgnome*.la}
 %{_includedir}/gdk-pixbuf
 %{_aclocaldir}/*
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libgdk*.a
+%{!?_without_gnome:%{_libdir}/libgnome*.a}
 %{_libdir}/gdk-pixbuf/loaders/lib*.a
