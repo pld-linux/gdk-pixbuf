@@ -1,13 +1,12 @@
 Summary:	GdkPixBuf
 Name:		gdk-pixbuf
-Version:	0.7.0
+Version:	0.8.0
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Group(fr):	X11/Librairies
 Group(pl):	X11/Biblioteki
-Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/gdk-pixbuf/%{name}-%{version}.tar.gz
-PAtch0:		gdk-pixbuf-INCLUDES_fix.patch
+Source0:	ftp://ftp.gnome.org/pub/GNOME/unstable/sources/gdk-pixbuf/%{name}-%{version}.tar.gz
 URL:		http://www.gnome.org/
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
@@ -63,10 +62,8 @@ Statyczne biblioteki gdk-pixbuf.
 
 %prep
 %setup -q
-%patch -p1
 
 %build
-automake
 LDFLAGS="-s"; export LDFLAGS
 %configure
 
