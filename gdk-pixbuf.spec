@@ -5,6 +5,7 @@
 Summary:	Image loading library used with GNOME
 Summary(pl):	Biblioteka Ёaduj╠ca obrazki u©ywana w GNOME
 Summary(pt_BR):	Biblioteca GdkPixBuf para manipulaГЦo de imagens
+Summary(ko):	╠вЁП©║╪╜ ╩Г©К╣г╢б ╠в╦╡ юп╠Б ╤Сюл╨Й╥╞╦╝
 Summary(ru):	Библиотека загрузки изображений и рендеринга для Gdk
 Summary(uk):	Б╕бл╕отека завантаження зображень та рендерингу для Gdk
 Name:		gdk-pixbuf
@@ -64,6 +65,7 @@ A biblioteca GdkPixBuf oferece:
 Summary:	Include files for the gdk-pixbuf
 Summary(pl):	Pliki nagЁСwkowe dla gdk-pixbuf
 Summary(pt_BR):	Bibliotecas e arquivos cabeГalhos para desenvolvimento
+Summary(ko):	gdk-pixbuf юю©Кга╥н╠в╥╔ю╩ ╟Ё╧ъгр╤╖ ╩Г©К╣г╢б ╤Сюл╨Й╥╞╦╝©м гЛ╢Уфдюо
 Summary(ru):	Средства разработки для программ с GdkPixBuf
 Summary(uk):	Засоби розробки для програм з GdkPixBuf
 Group:		X11/Development/Libraries
