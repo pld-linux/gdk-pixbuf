@@ -26,13 +26,13 @@ Patch6:		%{name}-ico-width.patch
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gtk+-devel
+BuildRequires:	giflib-devel
 %{?with_gnome1:BuildRequires:	gnome-libs-devel}
+BuildRequires:	gtk+-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	libtiff-devel
 BuildRequires:	libtool
 BuildRequires:	libpng-devel >= 1.0.8
-BuildRequires:	libungif-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_gtkdocdir	%{_defaultdocdir}/gtk-doc/html
