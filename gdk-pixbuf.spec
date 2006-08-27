@@ -10,7 +10,7 @@ Summary(ru):	Библиотека загрузки изображений и рендеринга для Gdk
 Summary(uk):	Б╕бл╕отека завантаження зображень та рендерингу для Gdk
 Name:		gdk-pixbuf
 Version:	0.22.0
-Release:	10
+Release:	11
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
@@ -23,12 +23,13 @@ Patch3:		%{name}-bmploop.patch
 Patch4:		%{name}-loaders.patch
 Patch5:		%{name}-bmp-colormap.patch
 Patch6:		%{name}-ico-width.patch
+Patch7:		%{name}-link.patch
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	giflib-devel
-%{?with_gnome1:BuildRequires:	gnome-libs-devel}
-BuildRequires:	gtk+-devel
+%{?with_gnome1:BuildRequires:	gnome-libs-devel >= 1:1.4.2-15}
+BuildRequires:	gtk+-devel >= 1.2.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libtiff-devel
 BuildRequires:	libtool
@@ -76,7 +77,7 @@ Summary(ru):	Средства разработки для программ с GdkPixBuf
 Summary(uk):	Засоби розробки для програм з GdkPixBuf
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
-Requires:	gtk+-devel
+Requires:	gtk+-devel >= 1.2.0
 Requires:	gtk-doc-common
 
 %description devel
@@ -128,6 +129,7 @@ Summary(ru):	Библиотека загрузки изображений и рендеринга для Gdk
 Summary(uk):	Б╕бл╕отека завантаження зображень та рендерингу для Gdk
 Group:		X11/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	gnome-libs >= 1:1.4.2-15
 
 %description gnome
 GNOME part of gdk-pixbuf library.
@@ -149,7 +151,7 @@ Summary(pl):	CzЙ╤Ф gdk-pixbuf zwi╠zana z GNOME - pliki dla programistСw
 Group:		X11/Development/Libraries
 Requires:	%{name}-gnome = %{epoch}:%{version}-%{release}
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
-Requires:	gnome-libs-devel
+Requires:	gnome-libs-devel >= 1:1.4.2-15
 
 %description gnome-devel
 GNOME part of gdk-pixbuf library - development files.
@@ -178,6 +180,7 @@ CzЙ╤Ф gdk-pixbuf zwi╠zana z GNOME - wersja statyczna.
 %patch4 -p1
 %patch5 -p1
 %patch6 -p1
+%patch7 -p1
 
 %build
 %{__libtoolize}
