@@ -48,6 +48,15 @@
  
  extra_sources = $(libpixbufloader_png_la_SOURCES) 	\
  		$(libpixbufloader_jpeg_la_SOURCES) 	\
+@@ -159,7 +159,7 @@
+ 	-I$(top_builddir)/gdk-pixbuf \
+ 	$(X11_CFLAGS) $(GLIB_CFLAGS) $(GTK_CFLAGS) $(GNOME_CFLAGS)
+ 
+-AM_CPPFLAGS = "-DPIXBUF_LIBDIR=\"$(libexecdir)\""
++AM_CPPFLAGS = "-DPIXBUF_LIBDIR=\"$(loadersdir)\""
+ 
+ LDADDS = libgdk_pixbuf.la $(GLIB_LIBS) $(GTK_LIBS) $(STATIC_LIB_DEPS)
+ 
 --- gdk-pixbuf-0.16.0/doc/Makefile.am.wiget	Mon Apr 15 19:09:12 2002
 +++ gdk-pixbuf-0.16.0/doc/Makefile.am	Mon Apr 15 19:11:27 2002
 @@ -157,6 +157,7 @@
@@ -188,15 +197,4 @@
 +     AC_MSG_WARN([*** PNG loader will not be built (PNG header file not found) ***])
      fi
    fi
- 
---- gdk-pixbuf-0.16.0/gdk-pixbuf/Makefile.am.wiget2	Tue Apr 16 13:00:48 2002
-+++ gdk-pixbuf-0.16.0/gdk-pixbuf/Makefile.am	Tue Apr 16 13:01:22 2002
-@@ -159,7 +159,7 @@
- 	-I$(top_builddir)/gdk-pixbuf \
- 	$(X11_CFLAGS) $(GLIB_CFLAGS) $(GTK_CFLAGS) $(GNOME_CFLAGS)
- 
--AM_CPPFLAGS = "-DPIXBUF_LIBDIR=\"$(libexecdir)\""
-+AM_CPPFLAGS = "-DPIXBUF_LIBDIR=\"$(loadersdir)\""
- 
- LDADDS = libgdk_pixbuf.la $(GLIB_LIBS) $(GTK_LIBS) $(STATIC_LIB_DEPS)
  
