@@ -1,0 +1,45 @@
+--- gdk-pixbuf-0.22.0/gdk-pixbuf/Makefile.am.orig	2006-08-27 11:30:25.283051000 +0200
++++ gdk-pixbuf-0.22.0/gdk-pixbuf/Makefile.am	2006-08-27 11:59:49.269293750 +0200
+@@ -16,7 +16,8 @@
+ 	libgdk_pixbuf_xlib.la	\
+ 	$(CANVAS_PIXBUF_LIB)
+ 
+-libgnomecanvaspixbuf_la_LDFLAGS = -version-info 1:0:0 $(EXTRA_GNOME_LIBS)
++libgnomecanvaspixbuf_la_LDFLAGS = -version-info 1:0:0
++libgnomecanvaspixbuf_la_LIBADD = libgdk_pixbuf.la $(EXTRA_GNOME_LIBS)
+ 
+ loadersdir = $(libdir)/gdk-pixbuf/loaders
+ 
+@@ -190,8 +191,8 @@
+ 	gdk-pixbuf-parse-color.c	\
+ 	$(extra_sources)
+ 
+-libgdk_pixbuf_la_LDFLAGS = -version-info 2:0:0 -export-dynamic $(GLIB_LIBS) $(GTK_LIBS)
+-libgdk_pixbuf_la_LIBADD = pixops/libpixops.la
++libgdk_pixbuf_la_LDFLAGS = -version-info 2:0:0 -export-dynamic
++libgdk_pixbuf_la_LIBADD = pixops/libpixops.la $(GTK_LIBS) $(GLIB_LIBS)
+ 
+ #
+ # The GdkPixbufXlib library
+@@ -211,8 +212,8 @@
+ 	gdk-pixbuf-parse-color.c	\
+ 	$(extra_sources)
+ 
+-libgdk_pixbuf_xlib_la_LDFLAGS = -version-info 2:0:0 -export-dynamic $(GLIB_LIBS)
+-libgdk_pixbuf_xlib_la_LIBADD = pixops/libpixops.la libgdk_pixbuf.la $(GTK_LIBS)
++libgdk_pixbuf_xlib_la_LDFLAGS = -version-info 2:0:0 -export-dynamic
++libgdk_pixbuf_xlib_la_LIBADD = pixops/libpixops.la libgdk_pixbuf.la $(GTK_LIBS) $(GLIB_LIBS) -lX11
+ 
+ 
+ libgdk_pixbufinclude_HEADERS =		\
+--- gdk-pixbuf-0.22.0/configure.in.orig	2006-08-27 11:30:25.291052000 +0200
++++ gdk-pixbuf-0.22.0/configure.in	2006-08-27 12:08:30.525870250 +0200
+@@ -272,7 +272,7 @@
+ 
+ GDK_PIXBUF_XLIB_LIBDIR=$GDK_PIXBUF_LIBDIR
+ GDK_PIXBUF_XLIB_INCLUDEDIR=$GDK_PIXBUF_INCLUDEDIR
+-GDK_PIXBUF_XLIB_LIBS="$GLIB_LIBS -lgdk_pixbuf_xlib $X11_LIBS"
++GDK_PIXBUF_XLIB_LIBS="$GLIB_LIBS -lgdk_pixbuf_xlib -lX11"
+ 
+ GNOMECANVASPIXBUF_LIBDIR=$GDK_PIXBUF_LIBDIR
+ GNOMECANVASPIXBUF_INCLUDEDIR=$GDK_PIXBUF_INCLUDEDIR
