@@ -36,7 +36,7 @@ BuildRequires:	libtiff-devel
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_gtkdocdir	%{_defaultdocdir}/gtk-doc/html
+%define		_gtkdocdir	%{_docdir}/gtk-doc/html
 
 %description
 The GdkPixBuf library provides a number of features:
