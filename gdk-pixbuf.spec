@@ -3,9 +3,9 @@
 %bcond_without	gnome1	# build without libgnomecanvaspixbuf (which requires GNOME)
 #
 Summary:	Image loading library used with GNOME
+Summary(ko):	±×³ð¿¡¼­ »ç¿ëµÇ´Â ±×¸² ÀÐ±â ¶óÀÌºê·¯¸®
 Summary(pl):	Biblioteka ³aduj±ca obrazki u¿ywana w GNOME
 Summary(pt_BR):	Biblioteca GdkPixBuf para manipulação de imagens
-Summary(ko):	±×³ð¿¡¼­ »ç¿ëµÇ´Â ±×¸² ÀÐ±â ¶óÀÌºê·¯¸®
 Summary(ru):	âÉÂÌÉÏÔÅËÁ ÚÁÇÒÕÚËÉ ÉÚÏÂÒÁÖÅÎÉÊ É ÒÅÎÄÅÒÉÎÇÁ ÄÌÑ Gdk
 Summary(uk):	â¦ÂÌ¦ÏÔÅËÁ ÚÁ×ÁÎÔÁÖÅÎÎÑ ÚÏÂÒÁÖÅÎØ ÔÁ ÒÅÎÄÅÒÉÎÇÕ ÄÌÑ Gdk
 Name:		gdk-pixbuf
@@ -31,9 +31,9 @@ BuildRequires:	giflib-devel
 %{?with_gnome1:BuildRequires:	gnome-libs-devel >= 1:1.4.2-15}
 BuildRequires:	gtk+-devel >= 1.2.0
 BuildRequires:	libjpeg-devel
+BuildRequires:	libpng-devel >= 1.0.8
 BuildRequires:	libtiff-devel
 BuildRequires:	libtool
-BuildRequires:	libpng-devel >= 1.0.8
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_gtkdocdir	%{_defaultdocdir}/gtk-doc/html
@@ -70,9 +70,9 @@ A biblioteca GdkPixBuf oferece:
 
 %package devel
 Summary:	Include files for the gdk-pixbuf
+Summary(ko):	gdk-pixbuf ÀÀ¿ëÇÁ·Î±×·¥À» °³¹ßÇÒ¶§ »ç¿ëµÇ´Â ¶óÀÌºê·¯¸®¿Í Çì´õÆÄÀÏ
 Summary(pl):	Pliki nag³ówkowe dla gdk-pixbuf
 Summary(pt_BR):	Bibliotecas e arquivos cabeçalhos para desenvolvimento
-Summary(ko):	gdk-pixbuf ÀÀ¿ëÇÁ·Î±×·¥À» °³¹ßÇÒ¶§ »ç¿ëµÇ´Â ¶óÀÌºê·¯¸®¿Í Çì´õÆÄÀÏ
 Summary(ru):	óÒÅÄÓÔ×Á ÒÁÚÒÁÂÏÔËÉ ÄÌÑ ÐÒÏÇÒÁÍÍ Ó GdkPixBuf
 Summary(uk):	úÁÓÏÂÉ ÒÏÚÒÏÂËÉ ÄÌÑ ÐÒÏÇÒÁÍ Ú GdkPixBuf
 Group:		X11/Development/Libraries
@@ -149,8 +149,8 @@ Czê¶æ gdk-pixbuf zwi±zana z GNOME.
 Summary:	GNOME part of gdk-pixbuf library - development files
 Summary(pl):	Czê¶æ gdk-pixbuf zwi±zana z GNOME - pliki dla programistów
 Group:		X11/Development/Libraries
-Requires:	%{name}-gnome = %{epoch}:%{version}-%{release}
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
+Requires:	%{name}-gnome = %{epoch}:%{version}-%{release}
 Requires:	gnome-libs-devel >= 1:1.4.2-15
 
 %description gnome-devel
