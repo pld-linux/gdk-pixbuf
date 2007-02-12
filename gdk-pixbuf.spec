@@ -3,11 +3,11 @@
 %bcond_without	gnome1	# build without libgnomecanvaspixbuf (which requires GNOME)
 #
 Summary:	Image loading library used with GNOME
-Summary(ko):	±×³ð¿¡¼­ »ç¿ëµÇ´Â ±×¸² ÀÐ±â ¶óÀÌºê·¯¸®
-Summary(pl):	Biblioteka ³aduj±ca obrazki u¿ywana w GNOME
-Summary(pt_BR):	Biblioteca GdkPixBuf para manipulação de imagens
-Summary(ru):	âÉÂÌÉÏÔÅËÁ ÚÁÇÒÕÚËÉ ÉÚÏÂÒÁÖÅÎÉÊ É ÒÅÎÄÅÒÉÎÇÁ ÄÌÑ Gdk
-Summary(uk):	â¦ÂÌ¦ÏÔÅËÁ ÚÁ×ÁÎÔÁÖÅÎÎÑ ÚÏÂÒÁÖÅÎØ ÔÁ ÒÅÎÄÅÒÉÎÇÕ ÄÌÑ Gdk
+Summary(ko.UTF-8):   ê·¸ë†ˆì—ì„œ ì‚¬ìš©ë˜ëŠ” ê·¸ë¦¼ ì½ê¸° ë¼ì´ë¸ŒëŸ¬ë¦¬
+Summary(pl.UTF-8):   Biblioteka Å‚adujÄ…ca obrazki uÅ¼ywana w GNOME
+Summary(pt_BR.UTF-8):   Biblioteca GdkPixBuf para manipulaÃ§Ã£o de imagens
+Summary(ru.UTF-8):   Ð‘Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐºÐ° Ð·Ð°Ð³Ñ€ÑƒÐ·ÐºÐ¸ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ð¹ Ð¸ Ñ€ÐµÐ½Ð´ÐµÑ€Ð¸Ð½Ð³Ð° Ð´Ð»Ñ Gdk
+Summary(uk.UTF-8):   Ð‘Ñ–Ð±Ð»Ñ–Ð¾Ñ‚ÐµÐºÐ° Ð·Ð°Ð²Ð°Ð½Ñ‚Ð°Ð¶ÐµÐ½Ð½Ñ Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½ÑŒ Ñ‚Ð° Ñ€ÐµÐ½Ð´ÐµÑ€Ð¸Ð½Ð³Ñƒ Ð´Ð»Ñ Gdk
 Name:		gdk-pixbuf
 Version:	0.22.0
 Release:	13
@@ -44,36 +44,36 @@ The GdkPixBuf library provides a number of features:
    pixmaps), GdkRGB buffers,
  - a cache interface.
 
-%description -l pl
-Biblioteka GdkPixBuf posiada du¿e mo¿liwo¶ci:
- - funkcje wspomagaj±ce ³adowanie obrazków,
- - oddanie GdkPixBuf w ró¿nych formatach, do rysowania (okna, pixmapy)
+%description -l pl.UTF-8
+Biblioteka GdkPixBuf posiada duÅ¼e moÅ¼liwoÅ›ci:
+ - funkcje wspomagajÄ…ce Å‚adowanie obrazkÃ³w,
+ - oddanie GdkPixBuf w rÃ³Å¼nych formatach, do rysowania (okna, pixmapy)
    czy bufory GdkRGB,
- - interfejs pamiêci podrêcznej.
+ - interfejs pamiÄ™ci podrÄ™cznej.
 
-%description -l pt_BR
+%description -l pt_BR.UTF-8
 A biblioteca GdkPixBuf oferece:
 
 - Estrutura GdkPixBuf para representar imagens.
 - Facilidades para carga de imagens.
 - Maneira simples de carregar imagens animadas.
-- Vários formatos: desenháveis (windows, pixmaps), buffers GdkRGB.
+- VÃ¡rios formatos: desenhÃ¡veis (windows, pixmaps), buffers GdkRGB.
 
-%description -l ru
-âÉÂÌÉÏÔÅËÁ GdkPixBuf ÐÒÅÄÏÓÔÁ×ÌÑÅÔ ×ÏÚÍÏÖÎÏÓÔØ ÚÁÇÒÕÖÁÔØ ÉÚÏÂÒÁÖÅÎÉÑ É
-ÒÅÎÄÅÒÉÔØ ÉÈ × ÒÁÚÎÙÅ ÆÏÒÍÁÔÙ: ÏËÎÁ, ÐÉËÓÍÁÐÙ, ÂÕÆÅÒÙ GdkRGB.
+%description -l ru.UTF-8
+Ð‘Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐºÐ° GdkPixBuf Ð¿Ñ€ÐµÐ´Ð¾ÑÑ‚Ð°Ð²Ð»ÑÐµÑ‚ Ð²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ÑÑ‚ÑŒ Ð·Ð°Ð³Ñ€ÑƒÐ¶Ð°Ñ‚ÑŒ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ñ Ð¸
+Ñ€ÐµÐ½Ð´ÐµÑ€Ð¸Ñ‚ÑŒ Ð¸Ñ… Ð² Ñ€Ð°Ð·Ð½Ñ‹Ðµ Ñ„Ð¾Ñ€Ð¼Ð°Ñ‚Ñ‹: Ð¾ÐºÐ½Ð°, Ð¿Ð¸ÐºÑÐ¼Ð°Ð¿Ñ‹, Ð±ÑƒÑ„ÐµÑ€Ñ‹ GdkRGB.
 
-%description -l uk
-â¦ÂÌ¦ÏÔÅËÁ GdkPixBuf ÎÁÄÁ¤ ÍÏÖÌÉ×ÏÓÔ¦ ÚÁ×ÁÎÔÁÖÕ×ÁÔÉ ÚÏÂÒÁÖÅÎÎÑ ÔÁ
-ÒÅÎÄÅÒÉÔÉ §È × Ò¦ÚÎ¦ ÆÏÒÍÁÔÉ: ×¦ËÎÁ, Ð¦ËÓÍÁÐÉ, ÂÕÆÅÒÉ GdkRGB.
+%description -l uk.UTF-8
+Ð‘Ñ–Ð±Ð»Ñ–Ð¾Ñ‚ÐµÐºÐ° GdkPixBuf Ð½Ð°Ð´Ð°Ñ” Ð¼Ð¾Ð¶Ð»Ð¸Ð²Ð¾ÑÑ‚Ñ– Ð·Ð°Ð²Ð°Ð½Ñ‚Ð°Ð¶ÑƒÐ²Ð°Ñ‚Ð¸ Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð½Ñ Ñ‚Ð°
+Ñ€ÐµÐ½Ð´ÐµÑ€Ð¸Ñ‚Ð¸ Ñ—Ñ… Ð² Ñ€Ñ–Ð·Ð½Ñ– Ñ„Ð¾Ñ€Ð¼Ð°Ñ‚Ð¸: Ð²Ñ–ÐºÐ½Ð°, Ð¿Ñ–ÐºÑÐ¼Ð°Ð¿Ð¸, Ð±ÑƒÑ„ÐµÑ€Ð¸ GdkRGB.
 
 %package devel
 Summary:	Include files for the gdk-pixbuf
-Summary(ko):	gdk-pixbuf ÀÀ¿ëÇÁ·Î±×·¥À» °³¹ßÇÒ¶§ »ç¿ëµÇ´Â ¶óÀÌºê·¯¸®¿Í Çì´õÆÄÀÏ
-Summary(pl):	Pliki nag³ówkowe dla gdk-pixbuf
-Summary(pt_BR):	Bibliotecas e arquivos cabeçalhos para desenvolvimento
-Summary(ru):	óÒÅÄÓÔ×Á ÒÁÚÒÁÂÏÔËÉ ÄÌÑ ÐÒÏÇÒÁÍÍ Ó GdkPixBuf
-Summary(uk):	úÁÓÏÂÉ ÒÏÚÒÏÂËÉ ÄÌÑ ÐÒÏÇÒÁÍ Ú GdkPixBuf
+Summary(ko.UTF-8):   gdk-pixbuf ì‘ìš©í”„ë¡œê·¸ëž¨ì„ ê°œë°œí• ë•Œ ì‚¬ìš©ë˜ëŠ” ë¼ì´ë¸ŒëŸ¬ë¦¬ì™€ í—¤ë”íŒŒì¼
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe dla gdk-pixbuf
+Summary(pt_BR.UTF-8):   Bibliotecas e arquivos cabeÃ§alhos para desenvolvimento
+Summary(ru.UTF-8):   Ð¡Ñ€ÐµÐ´ÑÑ‚Ð²Ð° Ñ€Ð°Ð·Ñ€Ð°Ð±Ð¾Ñ‚ÐºÐ¸ Ð´Ð»Ñ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼ Ñ GdkPixBuf
+Summary(uk.UTF-8):   Ð—Ð°ÑÐ¾Ð±Ð¸ Ñ€Ð¾Ð·Ñ€Ð¾Ð±ÐºÐ¸ Ð´Ð»Ñ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼ Ð· GdkPixBuf
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	gtk+-devel >= 1.2.0
@@ -82,50 +82,50 @@ Requires:	gtk-doc-common
 %description devel
 Include files for the gdk-pixbuf.
 
-%description devel -l pl
-Pliki nag³ówkowe dla gdk-pixbuf.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe dla gdk-pixbuf.
 
-%description devel -l pt_BR
-Bibliotecas e arquivos cabeçalhos para desenvolvimento de aplicativos
+%description devel -l pt_BR.UTF-8
+Bibliotecas e arquivos cabeÃ§alhos para desenvolvimento de aplicativos
 baseados nessa biblioteca.
 
-%description devel -l ru
-æÁÊÌÙ, ÎÅÏÂÈÏÄÉÍÙÅ ÄÌÑ ÒÁÚÒÁÂÏÔËÉ ÐÒÏÇÒÁÍÍ, ÉÓÐÏÌØÚÕÀÝÉÈ GdkPixBuf.
+%description devel -l ru.UTF-8
+Ð¤Ð°Ð¹Ð»Ñ‹, Ð½ÐµÐ¾Ð±Ñ…Ð¾Ð´Ð¸Ð¼Ñ‹Ðµ Ð´Ð»Ñ Ñ€Ð°Ð·Ñ€Ð°Ð±Ð¾Ñ‚ÐºÐ¸ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼, Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÑŽÑ‰Ð¸Ñ… GdkPixBuf.
 
-%description devel -l uk
-æÁÊÌÉ, ÎÅÏÂÈ¦ÄÎ¦ ÄÌÑ ÒÏÚÒÏÂËÉ ÐÒÏÇÒÁÍ, ÝÏ ËÏÒÉÓÔÕÀÔØÓÑ GdkPixBuf.
+%description devel -l uk.UTF-8
+Ð¤Ð°Ð¹Ð»Ð¸, Ð½ÐµÐ¾Ð±Ñ…Ñ–Ð´Ð½Ñ– Ð´Ð»Ñ Ñ€Ð¾Ð·Ñ€Ð¾Ð±ÐºÐ¸ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼, Ñ‰Ð¾ ÐºÐ¾Ñ€Ð¸ÑÑ‚ÑƒÑŽÑ‚ÑŒÑÑ GdkPixBuf.
 
 %package static
 Summary:	Static gdk-pixbuf libraries
-Summary(pl):	Biblioteki statyczne gdk-pixbuf
-Summary(pt_BR):	Bibliotecas estáticas para desenvolvimento com gdk-pixbuf
-Summary(ru):	óÔÁÔÉÞÅÓËÉÅ ÂÉÂÌÉÏÔÅËÉ ÄÌÑ ÐÒÏÇÒÁÍÍ Ó GdkPixBuf
-Summary(uk):	óÔÁÔÉÞÎ¦ Â¦ÂÌ¦ÏÔÅËÉ ÄÌÑ ÐÒÏÇÒÁÍ Ú GdkPixBuf
+Summary(pl.UTF-8):   Biblioteki statyczne gdk-pixbuf
+Summary(pt_BR.UTF-8):   Bibliotecas estÃ¡ticas para desenvolvimento com gdk-pixbuf
+Summary(ru.UTF-8):   Ð¡Ñ‚Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸Ðµ Ð±Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐºÐ¸ Ð´Ð»Ñ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼ Ñ GdkPixBuf
+Summary(uk.UTF-8):   Ð¡Ñ‚Ð°Ñ‚Ð¸Ñ‡Ð½Ñ– Ð±Ñ–Ð±Ð»Ñ–Ð¾Ñ‚ÐµÐºÐ¸ Ð´Ð»Ñ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼ Ð· GdkPixBuf
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 
 %description static
 Static gdk-pixbuf libraries.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczne biblioteki gdk-pixbuf.
 
-%description static -l pt_BR
-Bibliotecas estáticas para desenvolvimento com gdk-pixbuf.
+%description static -l pt_BR.UTF-8
+Bibliotecas estÃ¡ticas para desenvolvimento com gdk-pixbuf.
 
-%description static -l ru
-üÔÏÔ ÐÁËÅÔ ÓÏÄÅÒÖÉÔ ÓÔÁÔÉÞÅÓËÉÅ ÂÉÂÌÉÏÔÅËÉ ÄÌÑ ÓÂÏÒËÉ ÐÒÏÇÒÁÍÍ,
-ÉÓÐÏÌØÚÕÀÝÉÈ GdkPixBuf.
+%description static -l ru.UTF-8
+Ð­Ñ‚Ð¾Ñ‚ Ð¿Ð°ÐºÐµÑ‚ ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ñ‚ ÑÑ‚Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸Ðµ Ð±Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐºÐ¸ Ð´Ð»Ñ ÑÐ±Ð¾Ñ€ÐºÐ¸ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼,
+Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÑŽÑ‰Ð¸Ñ… GdkPixBuf.
 
-%description static -l uk
-ãÅÊ ÐÁËÅÔ Í¦ÓÔÉÔØ ÓÔÁÔÉÞÎ¦ Â¦ÂÌ¦ÏÔÅËÉ ÄÌÑ ÐÒÏÇÒÁÍ, ÑË¦ ×ÉËÏÒÉÓÔÏ×ÕÀÔØ
+%description static -l uk.UTF-8
+Ð¦ÐµÐ¹ Ð¿Ð°ÐºÐµÑ‚ Ð¼Ñ–ÑÑ‚Ð¸Ñ‚ÑŒ ÑÑ‚Ð°Ñ‚Ð¸Ñ‡Ð½Ñ– Ð±Ñ–Ð±Ð»Ñ–Ð¾Ñ‚ÐµÐºÐ¸ Ð´Ð»Ñ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼, ÑÐºÑ– Ð²Ð¸ÐºÐ¾Ñ€Ð¸ÑÑ‚Ð¾Ð²ÑƒÑŽÑ‚ÑŒ
 GdkPixBuf.
 
 %package gnome
 Summary:	GNOME part of gdk-pixbuf library
-Summary(pl):	Czê¶æ gdk-pixbuf zwi±zana z GNOME
-Summary(ru):	âÉÂÌÉÏÔÅËÁ ÚÁÇÒÕÚËÉ ÉÚÏÂÒÁÖÅÎÉÊ É ÒÅÎÄÅÒÉÎÇÁ ÄÌÑ Gdk
-Summary(uk):	â¦ÂÌ¦ÏÔÅËÁ ÚÁ×ÁÎÔÁÖÅÎÎÑ ÚÏÂÒÁÖÅÎØ ÔÁ ÒÅÎÄÅÒÉÎÇÕ ÄÌÑ Gdk
+Summary(pl.UTF-8):   CzÄ™Å›Ä‡ gdk-pixbuf zwiÄ…zana z GNOME
+Summary(ru.UTF-8):   Ð‘Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐºÐ° Ð·Ð°Ð³Ñ€ÑƒÐ·ÐºÐ¸ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ð¹ Ð¸ Ñ€ÐµÐ½Ð´ÐµÑ€Ð¸Ð½Ð³Ð° Ð´Ð»Ñ Gdk
+Summary(uk.UTF-8):   Ð‘Ñ–Ð±Ð»Ñ–Ð¾Ñ‚ÐµÐºÐ° Ð·Ð°Ð²Ð°Ð½Ñ‚Ð°Ð¶ÐµÐ½Ð½Ñ Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½ÑŒ Ñ‚Ð° Ñ€ÐµÐ½Ð´ÐµÑ€Ð¸Ð½Ð³Ñƒ Ð´Ð»Ñ Gdk
 Group:		X11/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	gnome-libs >= 1:1.4.2-15
@@ -133,20 +133,20 @@ Requires:	gnome-libs >= 1:1.4.2-15
 %description gnome
 GNOME part of gdk-pixbuf library.
 
-%description gnome -l pl
-Czê¶æ gdk-pixbuf zwi±zana z GNOME.
+%description gnome -l pl.UTF-8
+CzÄ™Å›Ä‡ gdk-pixbuf zwiÄ…zana z GNOME.
 
-%description gnome -l ru
-âÉÂÌÉÏÔÅËÁ GdkPixBuf ÐÒÅÄÏÓÔÁ×ÌÑÅÔ ×ÏÚÍÏÖÎÏÓÔØ ÚÁÇÒÕÖÁÔØ ÉÚÏÂÒÁÖÅÎÉÑ É
-ÒÅÎÄÅÒÉÔØ ÉÈ × ÒÁÚÎÙÅ ÆÏÒÍÁÔÙ: ÏËÎÁ, ÐÉËÓÍÁÐÙ, ÂÕÆÅÒÙ GdkRGB.
+%description gnome -l ru.UTF-8
+Ð‘Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐºÐ° GdkPixBuf Ð¿Ñ€ÐµÐ´Ð¾ÑÑ‚Ð°Ð²Ð»ÑÐµÑ‚ Ð²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ÑÑ‚ÑŒ Ð·Ð°Ð³Ñ€ÑƒÐ¶Ð°Ñ‚ÑŒ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ñ Ð¸
+Ñ€ÐµÐ½Ð´ÐµÑ€Ð¸Ñ‚ÑŒ Ð¸Ñ… Ð² Ñ€Ð°Ð·Ð½Ñ‹Ðµ Ñ„Ð¾Ñ€Ð¼Ð°Ñ‚Ñ‹: Ð¾ÐºÐ½Ð°, Ð¿Ð¸ÐºÑÐ¼Ð°Ð¿Ñ‹, Ð±ÑƒÑ„ÐµÑ€Ñ‹ GdkRGB.
 
-%description gnome -l uk
-â¦ÂÌ¦ÏÔÅËÁ GdkPixBuf ÎÁÄÁ¤ ÍÏÖÌÉ×ÏÓÔ¦ ÚÁ×ÁÎÔÁÖÕ×ÁÔÉ ÚÏÂÒÁÖÅÎÎÑ ÔÁ
-ÒÅÎÄÅÒÉÔÉ §È × Ò¦ÚÎ¦ ÆÏÒÍÁÔÉ: ×¦ËÎÁ, Ð¦ËÓÍÁÐÉ, ÂÕÆÅÒÉ GdkRGB.
+%description gnome -l uk.UTF-8
+Ð‘Ñ–Ð±Ð»Ñ–Ð¾Ñ‚ÐµÐºÐ° GdkPixBuf Ð½Ð°Ð´Ð°Ñ” Ð¼Ð¾Ð¶Ð»Ð¸Ð²Ð¾ÑÑ‚Ñ– Ð·Ð°Ð²Ð°Ð½Ñ‚Ð°Ð¶ÑƒÐ²Ð°Ñ‚Ð¸ Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð½Ñ Ñ‚Ð°
+Ñ€ÐµÐ½Ð´ÐµÑ€Ð¸Ñ‚Ð¸ Ñ—Ñ… Ð² Ñ€Ñ–Ð·Ð½Ñ– Ñ„Ð¾Ñ€Ð¼Ð°Ñ‚Ð¸: Ð²Ñ–ÐºÐ½Ð°, Ð¿Ñ–ÐºÑÐ¼Ð°Ð¿Ð¸, Ð±ÑƒÑ„ÐµÑ€Ð¸ GdkRGB.
 
 %package gnome-devel
 Summary:	GNOME part of gdk-pixbuf library - development files
-Summary(pl):	Czê¶æ gdk-pixbuf zwi±zana z GNOME - pliki dla programistów
+Summary(pl.UTF-8):   CzÄ™Å›Ä‡ gdk-pixbuf zwiÄ…zana z GNOME - pliki dla programistÃ³w
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 Requires:	%{name}-gnome = %{epoch}:%{version}-%{release}
@@ -155,20 +155,20 @@ Requires:	gnome-libs-devel >= 1:1.4.2-15
 %description gnome-devel
 GNOME part of gdk-pixbuf library - development files.
 
-%description gnome-devel -l pl
-Czê¶æ gdk-pixbuf zwi±zana z GNOME - pliki dla programistów.
+%description gnome-devel -l pl.UTF-8
+CzÄ™Å›Ä‡ gdk-pixbuf zwiÄ…zana z GNOME - pliki dla programistÃ³w.
 
 %package gnome-static
 Summary:	GNOME part of gdk-pixbuf library - static version
-Summary(pl):	Czê¶æ gdk-pixbuf zwi±zana z GNOME - wersja statyczna
+Summary(pl.UTF-8):   CzÄ™Å›Ä‡ gdk-pixbuf zwiÄ…zana z GNOME - wersja statyczna
 Group:		X11/Development/Libraries
 Requires:	%{name}-gnome-devel = %{epoch}:%{version}-%{release}
 
 %description gnome-static
 GNOME part of gdk-pixbuf library - static version.
 
-%description gnome-static -l pl
-Czê¶æ gdk-pixbuf zwi±zana z GNOME - wersja statyczna.
+%description gnome-static -l pl.UTF-8
+CzÄ™Å›Ä‡ gdk-pixbuf zwiÄ…zana z GNOME - wersja statyczna.
 
 %prep
 %setup -q
