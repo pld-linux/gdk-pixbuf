@@ -3,11 +3,11 @@
 %bcond_without	gnome1	# build without libgnomecanvaspixbuf (which requires GNOME)
 #
 Summary:	Image loading library used with GNOME
-Summary(ko.UTF-8):   그놈에서 사용되는 그림 읽기 라이브러리
-Summary(pl.UTF-8):   Biblioteka ładująca obrazki używana w GNOME
-Summary(pt_BR.UTF-8):   Biblioteca GdkPixBuf para manipulação de imagens
-Summary(ru.UTF-8):   Библиотека загрузки изображений и рендеринга для Gdk
-Summary(uk.UTF-8):   Бібліотека завантаження зображень та рендерингу для Gdk
+Summary(ko.UTF-8):	그놈에서 사용되는 그림 읽기 라이브러리
+Summary(pl.UTF-8):	Biblioteka ładująca obrazki używana w GNOME
+Summary(pt_BR.UTF-8):	Biblioteca GdkPixBuf para manipulação de imagens
+Summary(ru.UTF-8):	Библиотека загрузки изображений и рендеринга для Gdk
+Summary(uk.UTF-8):	Бібліотека завантаження зображень та рендерингу для Gdk
 Name:		gdk-pixbuf
 Version:	0.22.0
 Release:	13
@@ -69,11 +69,11 @@ A biblioteca GdkPixBuf oferece:
 
 %package devel
 Summary:	Include files for the gdk-pixbuf
-Summary(ko.UTF-8):   gdk-pixbuf 응용프로그램을 개발할때 사용되는 라이브러리와 헤더파일
-Summary(pl.UTF-8):   Pliki nagłówkowe dla gdk-pixbuf
-Summary(pt_BR.UTF-8):   Bibliotecas e arquivos cabeçalhos para desenvolvimento
-Summary(ru.UTF-8):   Средства разработки для программ с GdkPixBuf
-Summary(uk.UTF-8):   Засоби розробки для програм з GdkPixBuf
+Summary(ko.UTF-8):	gdk-pixbuf 응용프로그램을 개발할때 사용되는 라이브러리와 헤더파일
+Summary(pl.UTF-8):	Pliki nagłówkowe dla gdk-pixbuf
+Summary(pt_BR.UTF-8):	Bibliotecas e arquivos cabeçalhos para desenvolvimento
+Summary(ru.UTF-8):	Средства разработки для программ с GdkPixBuf
+Summary(uk.UTF-8):	Засоби розробки для програм з GdkPixBuf
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	gtk+-devel >= 1.2.0
@@ -97,10 +97,10 @@ baseados nessa biblioteca.
 
 %package static
 Summary:	Static gdk-pixbuf libraries
-Summary(pl.UTF-8):   Biblioteki statyczne gdk-pixbuf
-Summary(pt_BR.UTF-8):   Bibliotecas estáticas para desenvolvimento com gdk-pixbuf
-Summary(ru.UTF-8):   Статические библиотеки для программ с GdkPixBuf
-Summary(uk.UTF-8):   Статичні бібліотеки для програм з GdkPixBuf
+Summary(pl.UTF-8):	Biblioteki statyczne gdk-pixbuf
+Summary(pt_BR.UTF-8):	Bibliotecas estáticas para desenvolvimento com gdk-pixbuf
+Summary(ru.UTF-8):	Статические библиотеки для программ с GdkPixBuf
+Summary(uk.UTF-8):	Статичні бібліотеки для програм з GdkPixBuf
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 
@@ -123,9 +123,9 @@ GdkPixBuf.
 
 %package gnome
 Summary:	GNOME part of gdk-pixbuf library
-Summary(pl.UTF-8):   Część gdk-pixbuf związana z GNOME
-Summary(ru.UTF-8):   Библиотека загрузки изображений и рендеринга для Gdk
-Summary(uk.UTF-8):   Бібліотека завантаження зображень та рендерингу для Gdk
+Summary(pl.UTF-8):	Część gdk-pixbuf związana z GNOME
+Summary(ru.UTF-8):	Библиотека загрузки изображений и рендеринга для Gdk
+Summary(uk.UTF-8):	Бібліотека завантаження зображень та рендерингу для Gdk
 Group:		X11/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	gnome-libs >= 1:1.4.2-15
@@ -146,7 +146,7 @@ Część gdk-pixbuf związana z GNOME.
 
 %package gnome-devel
 Summary:	GNOME part of gdk-pixbuf library - development files
-Summary(pl.UTF-8):   Część gdk-pixbuf związana z GNOME - pliki dla programistów
+Summary(pl.UTF-8):	Część gdk-pixbuf związana z GNOME - pliki dla programistów
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 Requires:	%{name}-gnome = %{epoch}:%{version}-%{release}
@@ -160,7 +160,7 @@ Część gdk-pixbuf związana z GNOME - pliki dla programistów.
 
 %package gnome-static
 Summary:	GNOME part of gdk-pixbuf library - static version
-Summary(pl.UTF-8):   Część gdk-pixbuf związana z GNOME - wersja statyczna
+Summary(pl.UTF-8):	Część gdk-pixbuf związana z GNOME - wersja statyczna
 Group:		X11/Development/Libraries
 Requires:	%{name}-gnome-devel = %{epoch}:%{version}-%{release}
 
