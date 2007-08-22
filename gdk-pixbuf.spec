@@ -1,6 +1,7 @@
 #
 # Conditional build:
-%bcond_without	gnome1	# build without libgnomecanvaspixbuf (which requires GNOME)
+%bcond_without	gnome1		# build without libgnomecanvaspixbuf (which requires GNOME)
+%bcond_without	static_libs	# don't build static libraries
 #
 Summary:	Image loading library used with GNOME
 Summary(ko.UTF-8):	그놈에서 사용되는 그림 읽기 라이브러리
@@ -189,7 +190,8 @@ Część gdk-pixbuf związana z GNOME - wersja statyczna.
 %configure \
 	--disable-gtk-doc \
 	--with-html-dir=%{_gtkdocdir} \
-	%{!?with_gnome1:--without-gnome}
+	%{!?with_gnome1:--without-gnome} \
+	%{!?with_static_libs:--disable-static}
 
 %{__make} \
 	AS="%{__cc}"
@@ -239,9 +241,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_gtkdocdir}/gdk-pixbuf-1.0/[!g]*
 %{_gtkdocdir}/gdk-pixbuf-1.0/g[!n]*
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libgdk*.a
+%endif
 
 %if %{with gnome1}
 %files gnome
@@ -256,7 +260,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/gdk-pixbuf-1.0/gdk-pixbuf/gnome*.h
 %{_gtkdocdir}/gdk-pixbuf-1.0/gnome*
 
+%if %{with static_libs}
 %files gnome-static
 %defattr(644,root,root,755)
 %{_libdir}/libgnome*.a
+%endif
 %endif
