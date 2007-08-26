@@ -13,9 +13,9 @@ Name:		gdk-pixbuf
 Version:	0.22.0
 Release:	13
 Epoch:		1
-License:	LGPL
+License:	LGPL v2+
 Group:		X11/Libraries
-Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gdk-pixbuf/0.22/%{name}-%{version}.tar.bz2
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gdk-pixbuf/0.22/%{name}-%{version}.tar.bz2
 # Source0-md5:	05fcb68ceaa338614ab650c775efc2f2
 Patch0:		%{name}-am.patch
 Patch1:		%{name}-nognome.patch
@@ -25,7 +25,7 @@ Patch4:		%{name}-loaders.patch
 Patch5:		%{name}-bmp-colormap.patch
 Patch6:		%{name}-ico-width.patch
 Patch7:		%{name}-link.patch
-URL:		http://www.gnome.org/
+URL:		http://developer.gnome.org/arch/imaging/gdkpixbuf.html
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	giflib-devel
