@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_without	gnome1		# build without libgnomecanvaspixbuf (which requires GNOME)
+%bcond_with	gnome1		# build with libgnomecanvaspixbuf (which requires GNOME)
 %bcond_without	static_libs	# don't build static libraries
 #
 Summary:	Image loading library used with GNOME
@@ -11,7 +11,7 @@ Summary(ru.UTF-8):	Библиотека загрузки изображений 
 Summary(uk.UTF-8):	Бібліотека завантаження зображень та рендерингу для Gdk
 Name:		gdk-pixbuf
 Version:	0.22.0
-Release:	13
+Release:	14
 Epoch:		1
 License:	LGPL v2+
 Group:		X11/Libraries
