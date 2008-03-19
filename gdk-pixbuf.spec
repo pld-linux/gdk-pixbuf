@@ -14,7 +14,7 @@ Release:	9
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gdk-pixbuf/0.22/%{name}-%{version}.tar.bz2
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gdk-pixbuf/0.22/%{name}-%{version}.tar.bz2
 # Source0-md5: 05fcb68ceaa338614ab650c775efc2f2
 Patch0:		%{name}-am.patch
 Patch1:		%{name}-nognome.patch
@@ -26,16 +26,15 @@ Patch6:		%{name}-ico-width.patch
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gtk+-devel
 %{?with_gnome1:BuildRequires:	gnome-libs-devel}
+BuildRequires:	gtk+-devel
 BuildRequires:	libjpeg-devel
+BuildRequires:	libpng-devel >= 1.0.8
 BuildRequires:	libtiff-devel
 BuildRequires:	libtool
-BuildRequires:	libpng-devel >= 1.0.8
 BuildRequires:	libungif-devel
+BuildRequires:	rpmbuild(macros) >= 1.98
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_gtkdocdir	%{_defaultdocdir}/gtk-doc/html
 
 %description
 The GdkPixBuf library provides a number of features:
