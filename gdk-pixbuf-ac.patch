@@ -1,0 +1,10 @@
+--- configure.in.org	2008-11-11 15:44:00.284422569 +0100
++++ configure.in	2008-11-11 15:46:04.314617689 +0100
+@@ -111,6 +111,7 @@
+ dnl Now we check to see if our libtool supports shared lib deps
+ dnl (in a rather ugly way even)
+ if $dynworks; then
++   m4_ifdef([LT_OUTPUT], [LT_OUTPUT])
+    pixbuf_libtool_config="${CONFIG_SHELL-/bin/sh} libtool --config"
+    pixbuf_deplibs_check=`$pixbuf_libtool_config | \
+       grep '^[[a-z_]]*check[[a-z_]]*_method=[['\''"]]' | \
