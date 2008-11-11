@@ -11,7 +11,7 @@ Summary(ru.UTF-8):	Библиотека загрузки изображений 
 Summary(uk.UTF-8):	Бібліотека завантаження зображень та рендерингу для Gdk
 Name:		gdk-pixbuf
 Version:	0.22.0
-Release:	16
+Release:	17
 Epoch:		1
 License:	LGPL v2+
 Group:		X11/Libraries
@@ -25,6 +25,7 @@ Patch4:		%{name}-loaders.patch
 Patch5:		%{name}-bmp-colormap.patch
 Patch6:		%{name}-ico-width.patch
 Patch7:		%{name}-link.patch
+Patch8:		%{name}-ac.patch
 URL:		http://developer.gnome.org/arch/imaging/gdkpixbuf.html
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -181,6 +182,7 @@ Część gdk-pixbuf związana z GNOME - wersja statyczna.
 %patch5 -p1
 %patch6 -p1
 %patch7 -p1
+%patch8 -p0
 
 %build
 %{__libtoolize}
