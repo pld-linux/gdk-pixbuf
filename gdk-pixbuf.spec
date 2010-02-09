@@ -29,7 +29,6 @@ Patch8:		%{name}-ac.patch
 URL:		http://developer.gnome.org/arch/imaging/gdkpixbuf.html
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	giflib-devel
 %{?with_gnome1:BuildRequires:	gnome-libs-devel >= 1:1.4.2-15}
 BuildRequires:	gtk+-devel >= 1.2.0
 BuildRequires:	libjpeg-devel
