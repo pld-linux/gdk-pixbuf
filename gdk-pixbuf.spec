@@ -225,7 +225,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %ghost %{_libdir}/libgdk*.so.?
+%attr(755,root,root) %ghost %{_libdir}/libgdk*.so.2
 %attr(755,root,root) %{_libdir}/libgdk*.so.*.*
 %dir %{_libdir}/gdk-pixbuf
 %dir %{_libdir}/gdk-pixbuf/loaders
