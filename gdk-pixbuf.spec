@@ -190,12 +190,13 @@ Część gdk-pixbuf związana z GNOME - wersja statyczna.
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure \
 	--disable-gtk-doc \
-	--with-html-dir=%{_gtkdocdir} \
+	%{!?with_static_libs:--disable-static} \
 	%{!?with_gnome1:--without-gnome} \
-	%{!?with_static_libs:--disable-static}
+	--with-html-dir=%{_gtkdocdir}
 
 %{__make} \
 	AS="%{__cc}"
@@ -209,10 +210,19 @@ rm -rf $RPM_BUILD_ROOT
 	HTML_DIR=%{_gtkdocdir}
 
 # resolve conflict with gtk+2-devel
-mv -f $RPM_BUILD_ROOT%{_gtkdocdir}/gdk-pixbuf{,-1.0}
+%{__mv} $RPM_BUILD_ROOT%{_gtkdocdir}/gdk-pixbuf{,-1.0}
 
-# no *.{a,la} for plugins - shut up check-files
-rm -f $RPM_BUILD_ROOT%{_libdir}/gdk-pixbuf/loaders/lib*.{a,la}
+# no *.{a,la} for plugins
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/gdk-pixbuf/loaders/lib*.la
+%if %{with static_libs}
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/gdk-pixbuf/loaders/lib*.a
+%endif
+
+# cleanup non-gnome build
+%if %{without gnome}
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/gnomecanvaspixbufConf.sh
+%{__rm} $RPM_BUILD_ROOT%{_gtkdocdir}/gdk-pixbuf-1.0/gnomecanvaspixbuf.html
+%endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -225,50 +235,63 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %ghost %{_libdir}/libgdk*.so.2
-%attr(755,root,root) %{_libdir}/libgdk*.so.*.*
+%doc AUTHORS ChangeLog NEWS README TODO
+%attr(755,root,root) %{_libdir}/libgdk_pixbuf.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libgdk_pixbuf.so.2
+%attr(755,root,root) %{_libdir}/libgdk_pixbuf_xlib.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libgdk_pixbuf_xlib.so.2
 %dir %{_libdir}/gdk-pixbuf
 %dir %{_libdir}/gdk-pixbuf/loaders
-%attr(755,root,root) %{_libdir}/gdk-pixbuf/loaders/lib*.so*
+%attr(755,root,root) %{_libdir}/gdk-pixbuf/loaders/libpixbufloader-*.so
 
 %files devel
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/gdk-pixbuf-config
-%attr(755,root,root) %{_libdir}/gdk*.sh
-%attr(755,root,root) %{_libdir}/libgdk*.so
-%{_libdir}/libgdk*.la
+%attr(755,root,root) %{_libdir}/gdk_pixbufConf.sh
+%attr(755,root,root) %{_libdir}/gdk_pixbuf_xlibConf.sh
+%attr(755,root,root) %{_libdir}/libgdk_pixbuf.so
+%attr(755,root,root) %{_libdir}/libgdk_pixbuf_xlib.so
+%{_libdir}/libgdk_pixbuf.la
+%{_libdir}/libgdk_pixbuf_xlib.la
 %dir %{_includedir}/gdk-pixbuf-1.0
 %dir %{_includedir}/gdk-pixbuf-1.0/gdk-pixbuf
-%{_includedir}/gdk-pixbuf-1.0/gdk-pixbuf/gdk*.h
-%{_aclocaldir}/*
+%{_includedir}/gdk-pixbuf-1.0/gdk-pixbuf/gdk-pixbuf*.h
+%{_aclocaldir}/gdk-pixbuf.m4
 %dir %{_gtkdocdir}/gdk-pixbuf-1.0
-%{_gtkdocdir}/gdk-pixbuf-1.0/[!g]*
-%{_gtkdocdir}/gdk-pixbuf-1.0/g[!n]*
+%{_gtkdocdir}/gdk-pixbuf-1.0/a*.html
+%{_gtkdocdir}/gdk-pixbuf-1.0/compiling.html
+%{_gtkdocdir}/gdk-pixbuf-1.0/extra-configuration-options.html
+%{_gtkdocdir}/gdk-pixbuf-1.0/gdk-pixbuf-*.html
+%{_gtkdocdir}/gdk-pixbuf-1.0/gdkpixbufloader.html
+%{_gtkdocdir}/gdk-pixbuf-1.0/index.html
+%{_gtkdocdir}/gdk-pixbuf-1.0/license.html
+%{_gtkdocdir}/gdk-pixbuf-1.0/r*.html
+%{_gtkdocdir}/gdk-pixbuf-1.0/x*.html
 
 %if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/libgdk*.a
+%{_libdir}/libgdk_pixbuf.a
+%{_libdir}/libgdk_pixbuf_xlib.a
 %endif
 
 %if %{with gnome1}
 %files gnome
 %defattr(644,root,root,755)
-%attr(755,root,root) %ghost %{_libdir}/libgnome*.so.?
-%attr(755,root,root) %{_libdir}/libgnome*.so.*.*
+%attr(755,root,root) %{_libdir}/libgnomecanvaspixbuf.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libgnomecanvaspixbuf.so.1
 
 %files gnome-devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/gnome*.sh
-%attr(755,root,root) %{_libdir}/libgnome*.so
-%{_libdir}/libgnome*.la
-%{_includedir}/gdk-pixbuf-1.0/gdk-pixbuf/gnome*.h
-%{_gtkdocdir}/gdk-pixbuf-1.0/gnome*
+%attr(755,root,root) %{_libdir}/gnomecanvaspixbufConf.sh
+%attr(755,root,root) %{_libdir}/libgnomecanvaspixbuf.so
+%{_libdir}/libgnomecanvaspixbuf.la
+%{_includedir}/gdk-pixbuf-1.0/gdk-pixbuf/gnome-canvas-pixbuf.h
+%{_gtkdocdir}/gdk-pixbuf-1.0/gnomecanvaspixbuf.html
 
 %if %{with static_libs}
 %files gnome-static
 %defattr(644,root,root,755)
-%{_libdir}/libgnome*.a
+%{_libdir}/libgnomecanvaspixbuf.a
 %endif
 %endif
