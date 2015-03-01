@@ -11,7 +11,7 @@ Summary(ru.UTF-8):	Библиотека загрузки изображений 
 Summary(uk.UTF-8):	Бібліотека завантаження зображень та рендерингу для Gdk
 Name:		gdk-pixbuf
 Version:	0.22.0
-Release:	24
+Release:	25
 Epoch:		1
 License:	LGPL v2+
 Group:		X11/Libraries
