@@ -1,7 +1,7 @@
 #
 # Conditional build:
-%bcond_with	gnome1		# build with libgnomecanvaspixbuf (which requires GNOME)
-%bcond_without	static_libs	# don't build static libraries
+%bcond_with	gnome1		# libgnomecanvaspixbuf library (requires GNOME 1 libs)
+%bcond_without	static_libs	# static libraries
 #
 Summary:	Image loading library used with GNOME
 Summary(ko.UTF-8):	그놈에서 사용되는 그림 읽기 라이브러리
@@ -237,9 +237,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_libdir}/libgdk_pixbuf.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libgdk_pixbuf.so.2
+%ghost %{_libdir}/libgdk_pixbuf.so.2
 %attr(755,root,root) %{_libdir}/libgdk_pixbuf_xlib.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libgdk_pixbuf_xlib.so.2
+%ghost %{_libdir}/libgdk_pixbuf_xlib.so.2
 %dir %{_libdir}/gdk-pixbuf
 %dir %{_libdir}/gdk-pixbuf/loaders
 %attr(755,root,root) %{_libdir}/gdk-pixbuf/loaders/libpixbufloader-*.so
@@ -247,12 +247,12 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/gdk-pixbuf-config
-%attr(755,root,root) %{_libdir}/gdk_pixbufConf.sh
 %attr(755,root,root) %{_libdir}/gdk_pixbuf_xlibConf.sh
-%attr(755,root,root) %{_libdir}/libgdk_pixbuf.so
-%attr(755,root,root) %{_libdir}/libgdk_pixbuf_xlib.so
+%{_libdir}/libgdk_pixbuf.so
+%{_libdir}/libgdk_pixbuf_xlib.so
 %{_libdir}/libgdk_pixbuf.la
 %{_libdir}/libgdk_pixbuf_xlib.la
+%{_libdir}/gdk_pixbufConf.sh
 %dir %{_includedir}/gdk-pixbuf-1.0
 %dir %{_includedir}/gdk-pixbuf-1.0/gdk-pixbuf
 %{_includedir}/gdk-pixbuf-1.0/gdk-pixbuf/gdk-pixbuf*.h
@@ -279,13 +279,13 @@ rm -rf $RPM_BUILD_ROOT
 %files gnome
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgnomecanvaspixbuf.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libgnomecanvaspixbuf.so.1
+%ghost %{_libdir}/libgnomecanvaspixbuf.so.1
 
 %files gnome-devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/gnomecanvaspixbufConf.sh
-%attr(755,root,root) %{_libdir}/libgnomecanvaspixbuf.so
+%{_libdir}/libgnomecanvaspixbuf.so
 %{_libdir}/libgnomecanvaspixbuf.la
+%{_libdir}/gnomecanvaspixbufConf.sh
 %{_includedir}/gdk-pixbuf-1.0/gdk-pixbuf/gnome-canvas-pixbuf.h
 %{_gtkdocdir}/gdk-pixbuf-1.0/gnomecanvaspixbuf.html
 
