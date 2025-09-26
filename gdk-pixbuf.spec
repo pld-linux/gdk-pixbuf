@@ -15,7 +15,7 @@ Release:	25
 Epoch:		1
 License:	LGPL v2+
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gdk-pixbuf/0.22/%{name}-%{version}.tar.bz2
+Source0:	https://download.gnome.org/sources/gdk-pixbuf/0.22/%{name}-%{version}.tar.bz2
 # Source0-md5:	05fcb68ceaa338614ab650c775efc2f2
 Patch0:		%{name}-am.patch
 Patch1:		%{name}-nognome.patch
@@ -27,7 +27,7 @@ Patch6:		%{name}-ico-width.patch
 Patch7:		%{name}-link.patch
 Patch8:		%{name}-ac.patch
 Patch9:		%{name}-libpng15.patch
-URL:		http://developer.gnome.org/arch/imaging/gdkpixbuf.html
+URL:		https://gnome.pages.gitlab.gnome.org/gtk/gdk-pixbuf/
 BuildRequires:	autoconf
 BuildRequires:	automake
 %{?with_gnome1:BuildRequires:	gnome-libs-devel >= 1:1.4.2-15}
