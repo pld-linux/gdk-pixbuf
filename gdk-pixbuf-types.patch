@@ -1,0 +1,33 @@
+--- gdk-pixbuf-0.22.0/gdk-pixbuf/testpixbuf.c.orig	2002-09-27 23:23:15.000000000 +0200
++++ gdk-pixbuf-0.22.0/gdk-pixbuf/testpixbuf.c	2025-09-26 21:40:18.853408094 +0200
+@@ -491,7 +491,7 @@ progressive_updated_callback(GdkPixbufLo
+ 
+ 	g_assert (*window_loc != NULL);
+ 
+-	drawing_area = gtk_object_get_data (*window_loc, "drawing_area");
++	drawing_area = gtk_object_get_data (GTK_OBJECT(*window_loc), "drawing_area");
+ 	g_assert (drawing_area != NULL);
+ 
+ 	r.x = x;
+--- gdk-pixbuf-0.22.0/gdk-pixbuf/testpixbuf-scale.c.orig	2000-06-21 21:48:47.000000000 +0200
++++ gdk-pixbuf-0.22.0/gdk-pixbuf/testpixbuf-scale.c	2025-09-26 21:41:09.383693148 +0200
+@@ -2,6 +2,7 @@
+ #include "gdk-pixbuf.h"
+ 
+ #include <stdio.h>
++#include <stdlib.h>
+ 
+ GdkInterpType interp_type = GDK_INTERP_BILINEAR;
+ int overall_alpha = 255;
+--- gdk-pixbuf-0.22.0/configure.in.orig	2025-09-26 21:43:29.771151778 +0200
++++ gdk-pixbuf-0.22.0/configure.in	2025-09-26 21:46:04.312023583 +0200
+@@ -96,7 +96,8 @@ else
+     AC_TRY_RUN([
+     #include <glib.h>
+     #include <gmodule.h>
+-    main ()
++    #include <stdlib.h>
++    int main ()
+     {
+     	if (g_module_supported ())
+     	    exit (0);

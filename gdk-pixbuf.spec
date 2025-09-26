@@ -27,10 +27,12 @@ Patch6:		%{name}-ico-width.patch
 Patch7:		%{name}-link.patch
 Patch8:		%{name}-ac.patch
 Patch9:		%{name}-libpng15.patch
+Patch10:	%{name}-types.patch
 URL:		https://gnome.pages.gitlab.gnome.org/gtk/gdk-pixbuf/
 BuildRequires:	autoconf
 BuildRequires:	automake
 %{?with_gnome1:BuildRequires:	gnome-libs-devel >= 1:1.4.2-15}
+BuildRequires:	glib-devel >= 1.2.0
 BuildRequires:	gtk+-devel >= 1.2.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel >= 1.0.8
@@ -185,6 +187,7 @@ Część gdk-pixbuf związana z GNOME - wersja statyczna.
 %patch -P7 -p1
 %patch -P8 -p0
 %patch -P9 -p1
+%patch -P10 -p1
 
 %build
 %{__libtoolize}
